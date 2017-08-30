@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -96,6 +97,15 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        TextView forgotPassword = (TextView) findViewById(R.id.login_forgot_password);
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void getUsersFromDB(String... data) {
@@ -180,7 +190,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         JSONObject object = array.getJSONObject(0);
 
-                        team = new Team(object.getInt("team_id"), object.getString("name"),
+                        team = new Team(team_ids[0], object.getString("name"),
                                 object.getString("owner"), object.getDouble("price"),
                                 object.getInt("points"), object.getInt("points_week"),
                                 object.getInt("def_num"), object.getInt("mid_num"),

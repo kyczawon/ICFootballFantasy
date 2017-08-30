@@ -70,6 +70,21 @@ public class TeamDisplayFragment extends Fragment {
         TextView weekPointsTextView = (TextView) view.findViewById(R.id.points_week);
         weekPointsTextView.setText(String.valueOf(points_week));
 
+        if (teamEditable) {
+            final Button submitButton = (Button) view.findViewById(R.id.team_display_save_changes);
+            submitButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    submitButton.setText("");
+                    submitButton.setEnabled(false);
+                    ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.team_display_progress);
+                    progressBar.setVisibility(View.VISIBLE);
+
+                    editTeamAtDB();
+                }
+            });
+        }
+
         return view;
     }
 
@@ -335,20 +350,25 @@ public class TeamDisplayFragment extends Fragment {
         }
     };
 
-    private void addPlayerToDB(String... input) {
+    private void editTeamAtDB(Integer... input) {
 
-        AsyncTask<String, Void, String> asyncTask = new AsyncTask<String, Void, String>() {
+        AsyncTask<Integer, Void, String> asyncTask = new AsyncTask<Integer, Void, String>() {
             @Override
-            protected String doInBackground(String... input) {
+            protected String doInBackground(Integer... input) {
                 String message;
 
                 HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
                 logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("https://union.ic.ac.uk/acc/football/android_connect/add_player.php?first_name=\"" + input[0]
-                                + "\"&last_name=\"" + input[1]+ "\"&position=\"" + input[2] + "\"&team="+ Integer.parseInt(input[3])
-                                + "&price=" + Double.parseDouble(input[4]) + "&is_fresher=" + Integer.parseInt(input[5]))
+                        .url("https://union.ic.ac.uk/acc/football/android_connect/edit_team.php?team_id=" + team.getTeam_id()
+                                + "&def_num=" + team.getDefNum() + "&mid_num=" + team.getMidNum() + "&fwd_num="+ team.getFwdNum()
+                                + "&goal=" + team.getGoalId() + "&player1=" + team.getPlayer1Id() + "&player2=" + team.getPlayer2Id()
+                                + "&player3=" + team.getPlayer3Id() + "&player4=" + team.getPlayer4Id() + "&player5=" + team.getPlayer5Id()
+                                + "&player6=" + team.getPlayer6Id() + "&player7=" + team.getPlayer7Id() + "&player8=" + team.getPlayer8Id()
+                                + "&player9=" + team.getPlayer9Id() + "&player10=" + team.getPlayer10Id() + "&sub_goal=" + team.getSubGoalId()
+                                + "&sub1=" + team.getSub1Id() + "&sub2=" + team.getSub2Id() + "&sub3=" + team.getSub3Id()
+                                + "&sub4=" + team.getSub4Id())
                         .build();
                 try {
                     Response response = client.newCall(request).execute();
@@ -365,10 +385,10 @@ public class TeamDisplayFragment extends Fragment {
             protected void onPostExecute(String message) {
                 Toast.makeText(getContext(), message,
                         Toast.LENGTH_SHORT).show();
-                Button registerButton = (Button) view.findViewById(R.id.new_player_button);
-                registerButton.setText("Add Player");
+                Button registerButton = (Button) view.findViewById(R.id.team_display_save_changes);
+                registerButton.setText("Save Changes by 01/10/17 23:59");
                 registerButton.setEnabled(true);
-                ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.new_player_progress);
+                ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.team_display_progress);
                 progressBar.setVisibility(View.GONE);
             }
         };

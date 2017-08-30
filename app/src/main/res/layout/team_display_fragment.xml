@@ -411,27 +411,26 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <Button
-            android:id="@+id/team_display_save"
+            android:id="@+id/team_display_save_changes"
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/large_button_no_radius"
-            android:text="Submit changes by 01/10/17 23:59"/>
+            android:text="Save Changes by 01/10/17 23:59"/>
         <ProgressBar
             android:id="@+id/team_display_progress"
-            style="?android:attr/progressBarStyleHorizontal"
+            style="?android:attr/progressBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminate="false"
-            android:progressDrawable="@drawable/circular_progress_bar"
-            android:background="@drawable/circle_shape"
-            android:max="100"
-            android:layout_alignBottom="@+id/team_stats_summary_save"
-            android:layout_alignTop="@+id/team_stats_summary_save"
-            android:layout_centerHorizontal="true"/>
+            android:layout_alignBottom="@+id/team_display_save_changes"
+            android:layout_alignTop="@+id/team_display_save_changes"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone" />
 
 
     </RelativeLayout>
