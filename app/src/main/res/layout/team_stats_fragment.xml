@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <TextView
+        android:id="@+id/team_stats_stat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Appearances"
+        style="@style/medium_text"
+        android:background="@color/colorPrimaryLight"
+        android:textColor="@color/textPrimary"
+        android:padding="8dp"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/team_stats_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </android.support.v7.widget.RecyclerView>
+    <Button
+        android:id="@+id/team_stats_button_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        style="@style/large_button_no_radius"/>
+</LinearLayout>

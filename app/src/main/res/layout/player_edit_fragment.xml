@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_margin="16dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/edit_player_first_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="John"/>
+
+        <TextView
+            android:id="@+id/edit_player_last_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Smith"
+            android:layout_marginLeft="8dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Stat"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Current"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Updated"
+            android:layout_weight="3"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:text="Apps"/>
+
+        <TextView
+            android:id="@+id/edit_player_current_apps"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            tools:text="1"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+
+            <Button
+                android:id="@+id/edit_player_next_button_0_decrement"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-"/>
+
+            <EditText
+                android:id="@+id/edit_player_next_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:maxHeight="40dp"
+                tools:text="2"
+                android:inputType="number"/>
+
+            <Button
+                android:id="@+id/edit_player_next_button_0_increment"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Sub Apps"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/edit_player_current_subs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="1"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+
+            <Button
+                android:id="@+id/edit_player_next_button_1_decrement"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-"/>
+
+            <EditText
+                android:id="@+id/edit_player_next_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:maxHeight="40dp"
+                tools:text="2"
+                android:inputType="number"/>
+
+            <Button
+                android:id="@+id/edit_player_next_button_1_increment"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Goals"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/edit_player_current_goals"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="1"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+
+            <Button
+                android:id="@+id/edit_player_next_button_2_decrement"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-"/>
+
+            <EditText
+                android:id="@+id/edit_player_next_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:maxHeight="40dp"
+                tools:text="2"
+                android:inputType="number"/>
+
+            <Button
+                android:id="@+id/edit_player_next_button_2_increment"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Assists"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/edit_player_current_assists"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="1"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3">
+
+                <Button
+                    android:id="@+id/edit_player_next_button_3_decrement"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="-"/>
+
+                <EditText
+                    android:id="@+id/edit_player_next_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:maxHeight="40dp"
+                    tools:text="2"
+                    android:inputType="number"/>
+
+                <Button
+                    android:id="@+id/edit_player_next_button_3_increment"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Clean Sheets"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/edit_player_current_clean_sheets"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="1"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+
+            <Button
+                android:id="@+id/edit_player_next_button_4_decrement"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-"/>
+
+            <EditText
+                android:id="@+id/edit_player_next_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:maxHeight="40dp"
+                tools:text="2"
+                android:inputType="number"/>
+
+            <Button
+                android:id="@+id/edit_player_next_button_4_increment"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="MOTMs"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/edit_player_current_motms"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="1"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+
+            <Button
+                android:id="@+id/edit_player_next_button_5_decrement"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-"/>
+
+            <EditText
+                android:id="@+id/edit_player_next_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:maxHeight="40dp"
+                tools:text="2"
+                android:inputType="number"/>
+
+            <Button
+                android:id="@+id/edit_player_next_button_5_increment"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Yelllow Cards"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/edit_player_current_yellows"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="1"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+
+            <Button
+                android:id="@+id/edit_player_next_button_6_decrement"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-"/>
+
+            <EditText
+                android:id="@+id/edit_player_next_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:maxHeight="40dp"
+                tools:text="2"
+                android:inputType="number"/>
+
+            <Button
+                android:id="@+id/edit_player_next_button_6_increment"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Red Cards"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/edit_player_current_reds"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="1"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+
+            <Button
+                android:id="@+id/edit_player_next_button_7_decrement"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-"/>
+
+            <EditText
+                android:id="@+id/edit_player_next_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:maxHeight="40dp"
+                tools:text="2"
+                android:inputType="number"/>
+
+            <Button
+                android:id="@+id/edit_player_next_button_7_increment"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Own Goals"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/edit_player_current_own_goals"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="1"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+
+            <Button
+                android:id="@+id/edit_player_next_button_8_decrement"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-"/>
+
+            <EditText
+                android:id="@+id/edit_player_next_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:maxHeight="40dp"
+                tools:text="2"
+                android:inputType="number"/>
+
+            <Button
+                android:id="@+id/edit_player_next_button_8_increment"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/edit_player_save_changes"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/large_button"
+            android:text="Save Changes"/>
+        <ProgressBar
+            android:id="@+id/edit_player_progress"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/new_player_button"
+            android:layout_alignTop="@+id/new_player_button"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

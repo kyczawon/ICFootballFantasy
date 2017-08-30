@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/team_stats_row_player"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        tools:text="David Monk"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"/>
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/team_stats_row_player_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/colorAccent"/>
+</LinearLayout>

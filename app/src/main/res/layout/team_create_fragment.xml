@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/RelativeLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:context="uk.ac.imperial.icfootballfantasy.view.MainActivity">
+    <ImageView
+        android:id="@+id/pitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/pitch"
+        android:scaleType="fitStart"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+        </View>
+
+        <LinearLayout
+            android:layout_weight="10"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </View>
+
+
+            <LinearLayout
+                android:id="@+id/create_team_player1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt_blank"
+                    android:id="@+id/create_team_player1_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player1_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player1_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/create_team_player2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt_blank"
+                    android:id="@+id/create_team_player2_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player2_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player2_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </View>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+        </View>
+
+        <LinearLayout
+            android:layout_weight="10"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <LinearLayout
+                android:id="@+id/create_team_player3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt_blank"
+                    android:id="@+id/create_team_player3_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player3_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player3_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/create_team_player4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt_blank"
+                    android:id="@+id/create_team_player4_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player4_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player4_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/create_team_player5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt_blank"
+                    android:id="@+id/create_team_player5_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player5_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player5_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/create_team_player6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt_blank"
+                    android:id="@+id/create_team_player6_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player6_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player6_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/create_team_player7"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt_blank"
+                    android:id="@+id/create_team_player7_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player7_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player7_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+        </View>
+
+        <LinearLayout
+            android:layout_weight="10"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <LinearLayout
+                android:id="@+id/create_team_player8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt_blank"
+                    android:id="@+id/create_team_player8_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player8_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player8_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/create_team_player9"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt_blank"
+                    android:id="@+id/create_team_player9_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player9_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player9_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/create_team_player10"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt_blank"
+                    android:id="@+id/create_team_player10_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player10_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player10_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/create_team_player11"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/create_team_player11_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/shirt_blank"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player11_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player11_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/create_team_player12"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt_blank"
+                    android:id="@+id/create_team_player12_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player12_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player12_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+        </View>
+
+        <LinearLayout
+            android:layout_weight="10"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <LinearLayout
+                android:id="@+id/create_team_player13"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt_blank"
+                    android:id="@+id/create_team_player13_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player13_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player13_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/create_team_player14"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                android:src="@drawable/shirt_blank"
+                android:id="@+id/create_team_player14_shirt"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                />
+
+                <TextView
+                    android:id="@+id/create_team_player14_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player14_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/create_team_player15"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt_blank"
+                    android:id="@+id/create_team_player15_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player15_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player15_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/create_team_player16"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/create_team_player16_shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/shirt_blank"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player16_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/create_team_player16_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="£12m"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+        </View>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/side_nav_bar"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            android:paddingTop="2dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Remaining Budget"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    style="@style/medium_text">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/create_team_remaining_budget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    style="@style/medium_text"
+                    tools:text="£120m"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="At least one player from every team:"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true">
+                </TextView>
+
+                <CheckBox
+                    android:id="@+id/create_team_checkbox_min1_every_team"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:clickable="false"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="At least three freshers:"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true">
+                </TextView>
+
+                <CheckBox
+                    android:id="@+id/create_team_checkbox_min3_freshers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:clickable="false"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="16dp"
+                android:paddingRight="16dp"
+                android:paddingStart="16dp"
+                android:paddingLeft="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Max three players from same team:"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true">
+                </TextView>
+
+                <CheckBox
+                    android:id="@+id/create_team_checkbox_max3_same_team"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:checked="true"
+                    android:clickable="false"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="16dp"
+                android:paddingRight="16dp"
+                android:paddingStart="16dp"
+                android:paddingLeft="16dp"
+                android:layout_marginTop="-4dp">
+                <EditText
+                    android:id="@+id/create_team_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="-4dp"
+                    android:hint="Team Name">
+                </EditText>
+
+                <CheckBox
+                    android:id="@+id/create_team_checkbox_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:clickable="false"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/create_team_button_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit Team"
+                style="@style/large_button_no_radius"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

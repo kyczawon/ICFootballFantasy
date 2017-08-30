@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/team_stats_summary_player_linear_layout"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:paddingLeft="16dp"
+              android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingRight="16dp"
+    android:minHeight="40dp"
+    android:gravity="center_vertical">
+    <TextView
+        android:id="@+id/summary_player_row_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="David Monk"
+        android:minWidth="90dp"
+        style="@style/medium_text"/>
+
+</LinearLayout>

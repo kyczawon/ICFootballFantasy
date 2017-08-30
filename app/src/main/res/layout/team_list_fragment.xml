@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:scrollbars="none">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="@dimen/row_width"
+                android:layout_height="wrap_content"
+                android:text="Team Name"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="@dimen/row_width"
+                android:layout_height="wrap_content"
+                android:text="Owner"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="@dimen/row_width"
+                android:layout_height="wrap_content"
+                android:text="Value"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="@dimen/row_width"
+                android:layout_height="wrap_content"
+                android:text="Points"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:gravity="center"/>
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                android:id="@+id/team_recycler_view"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+</HorizontalScrollView>

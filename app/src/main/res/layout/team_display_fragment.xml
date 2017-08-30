@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/RelativeLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:context="uk.ac.imperial.icfootballfantasy.view.MainActivity"
+                >
+    <LinearLayout
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="8dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Points"
+            style="@style/medium_text"
+            android:textColor="@color/textPrimary"/>
+        <TextView
+            android:id="@+id/total_points"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingEnd="16dp"
+            tools:text="20"
+            android:layout_weight="1"
+            style="@style/medium_text"
+            android:textColor="@color/textPrimary"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This week"
+            style="@style/medium_text"
+            android:textColor="@color/textPrimary"/>
+        <TextView
+            android:id="@+id/points_week"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingStart="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingEnd="16dp"
+            tools:text="20"
+            style="@style/medium_text"
+            android:textColor="@color/textPrimary"/>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/pitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/pitch"
+        android:layout_below="@+id/info"
+        android:scaleType="fitStart"/>
+
+    <ImageView
+        android:id="@+id/bench"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bench"
+        android:scaleType="fitEnd"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="@dimen/button_min_height"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:layout_weight="5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+        </View>
+
+        <RelativeLayout
+            android:layout_weight="10"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:id="@+id/goal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/goalkeeper"
+                    android:id="@+id/goal_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/goal_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/goal_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="98"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="10sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+        </View>
+
+        <LinearLayout
+            android:id="@+id/main_def_linear_layout"
+            android:layout_weight="10"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <View
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+        </View>
+
+        <LinearLayout
+            android:id="@+id/main_mid_linear_layout"
+            android:layout_weight="10"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <View
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+        </View>
+
+        <LinearLayout
+            android:id="@+id/main_fwd_linear_layout"
+            android:layout_weight="10"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <View
+            android:layout_weight="3"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+        </View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="10"
+            android:layout_height="0dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/sub1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt"
+                    android:id="@+id/sub1_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/sub1_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/sub1_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="98"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="10sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sub2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt"
+                    android:id="@+id/sub2_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/sub2_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/sub2_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="98"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="10sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sub3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt"
+                    android:id="@+id/sub3_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/sub3_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/sub3_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="98"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="10sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sub4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt"
+                    android:id="@+id/sub4_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/sub4_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/sub4_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="98"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="10sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sub5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/shirt"
+                    android:id="@+id/sub5_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/sub5_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Monk"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/sub5_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="98"
+                    android:layout_gravity="center"
+                    android:background="#1B5E20"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="10sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_min_height">
+        </View>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/team_display_save"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/large_button_no_radius"
+            android:text="Submit changes by 01/10/17 23:59"/>
+        <ProgressBar
+            android:id="@+id/team_display_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:background="@drawable/circle_shape"
+            android:max="100"
+            android:layout_alignBottom="@+id/team_stats_summary_save"
+            android:layout_alignTop="@+id/team_stats_summary_save"
+            android:layout_centerHorizontal="true"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

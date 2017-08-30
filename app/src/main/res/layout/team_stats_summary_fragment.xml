@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+              android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout android:id="@+id/team_stats_summary_linear_layout"
+            android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical" >
+            <TextView
+                android:id="@+id/team_stats_summary_match"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_min_height"
+                android:gravity="center_vertical"
+                android:text="Match Summary"
+                style="@style/medium_text"
+                android:background="@color/colorPrimaryLight"
+                android:textColor="@color/textPrimary"
+                android:paddingLeft="16dp"
+                android:paddingStart="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="IC : Opponent"
+                    style="@style/medium_text"/>
+                <TextView
+                    android:id="@+id/team_stats_summary_ic_score"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.75"
+                    android:layout_height="wrap_content"
+                    tools:text="1"
+                    android:gravity="right"
+                    style="@style/medium_text"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingEnd="16dp"
+                    style="@style/medium_text"/>
+                <TextView
+                    android:id="@+id/team_stats_summary_opponent_score"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.75"
+                    android:layout_height="wrap_content"
+                    tools:text="1"
+                    style="@style/medium_text"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_min_height"
+                android:gravity="center_vertical"
+                android:text="Appearances"
+                style="@style/medium_text"
+                android:background="@color/colorPrimaryLight"
+                android:textColor="@color/textPrimary"
+                android:padding="8dp"
+                android:paddingLeft="16dp"
+                android:paddingStart="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_min_height"
+                android:gravity="center_vertical"
+                android:text="Subs"
+                style="@style/medium_text"
+                android:background="@color/colorPrimaryLight"
+                android:textColor="@color/textPrimary"
+                android:paddingLeft="16dp"
+                android:paddingStart="16dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/team_stats_summary_save"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/large_button_no_radius"
+            android:text="Save Changes"/>
+        <ProgressBar
+            android:id="@+id/team_stats_summary_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:background="@drawable/circle_shape"
+            android:max="100"
+            android:layout_alignBottom="@+id/team_stats_summary_save"
+            android:layout_alignTop="@+id/team_stats_summary_save"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_my_team"
+            android:title="My Team"/>
+        <item
+            android:id="@+id/nav_teams"
+            android:title="Teams"/>
+        <item
+            android:id="@+id/nav_players"
+            android:title="Players"/>
+        <item
+            android:id="@+id/nav_table"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Tables \u0026 Fixtures"/>
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Share"/>
+
+        <item
+            android:id="@+id/nav_admin"
+            android:title="Admin">
+            <menu>
+                <item
+                    android:id="@+id/nav_add_player"
+                    android:icon="@drawable/ic_action_add"
+                    android:title="Add Player"/>
+                <item
+                    android:id="@+id/nav_set_team_stats"
+                    android:icon="@drawable/ic_action_add"
+                    android:title="Set Team Stats"/>
+                <item
+                    android:id="@+id/nav_set_stats"
+                    android:icon="@drawable/ic_menu_send"
+                    android:title="Set Stats"/>
+            </menu>
+        </item>
+
+    </group>
+</menu>
