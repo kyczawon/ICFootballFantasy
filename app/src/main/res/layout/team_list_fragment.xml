@@ -1,52 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<HorizontalScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:scrollbars="none">
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        android:id="@+id/team_list_headers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <RelativeLayout
+            android:id="@+id/team_list_name_layout"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content">
+
             <TextView
-                android:layout_width="@dimen/row_width"
+                android:id="@+id/team_list_name"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Team Name"
                 android:textStyle="bold"
-                android:textSize="16sp"
-                android:gravity="center"/>
+                android:textSize="16sp"/>
+            <CheckBox
+                android:id="@+id/team_list_name_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/team_list_name"
+                android:layout_toEndOf="@id/team_list_name"
+                android:button="@drawable/ic_keyboard_arrow_down"
+                android:visibility="gone"
+                android:clickable="false"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/team_list_owner_layout"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content">
+
             <TextView
-                android:layout_width="@dimen/row_width"
+                android:id="@+id/team_list_owner"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Owner"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:gravity="center"/>
+            <CheckBox
+                android:id="@+id/team_list_owner_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/team_list_owner"
+                android:layout_toEndOf="@id/team_list_owner"
+                android:button="@drawable/ic_keyboard_arrow_down"
+                android:visibility="gone"
+                android:clickable="false"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/team_list_value_layout"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content">
+
             <TextView
-                android:layout_width="@dimen/row_width"
+                android:id="@+id/team_list_value"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Value"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:gravity="center"/>
+            <CheckBox
+                android:id="@+id/team_list_value_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/team_list_value"
+                android:layout_toEndOf="@id/team_list_value"
+                android:button="@drawable/ic_keyboard_arrow_down"
+                android:visibility="gone"
+                android:clickable="false"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/team_list_points_layout"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content">
+
             <TextView
-                android:layout_width="@dimen/row_width"
+                android:id="@+id/team_list_points"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Points"
                 android:textStyle="bold"
-                android:textSize="16sp"
-                android:gravity="center"/>
-        </LinearLayout>
-        <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-                                                android:id="@+id/team_recycler_view"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent">
+                android:textSize="16sp"/>
+            <CheckBox
+                android:id="@+id/team_list_points_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/team_list_points"
+                android:layout_toEndOf="@id/team_list_points"
+                android:button="@drawable/ic_keyboard_arrow_down"
+                android:clickable="false"/>
 
-        </android.support.v7.widget.RecyclerView>
-
+        </RelativeLayout>
     </LinearLayout>
-</HorizontalScrollView>
+    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+                                            android:id="@+id/team_recycler_view"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

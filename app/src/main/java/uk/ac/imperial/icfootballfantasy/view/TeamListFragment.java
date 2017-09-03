@@ -12,6 +12,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -20,6 +23,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
@@ -37,38 +42,122 @@ public class TeamListFragment extends Fragment {
     private TeamAdapter mAdapter;
     private LinearLayoutManager linearLayout;
     private List<Team> teams;
+    private View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view  = inflater.inflate(R.layout.team_list_fragment, container, false);
+        view  = inflater.inflate(R.layout.team_list_fragment, container, false);
 
 
         teams = new ArrayList<>();
         mTeamRecycleView = (RecyclerView) view.findViewById(R.id.team_recycler_view);
         linearLayout = new LinearLayoutManager(getContext());
         mTeamRecycleView.setLayoutManager(linearLayout);
-        getTeamsFromDB(0);
+        getTeamsFromDB("");
 
         updateUI();
 
+        LinearLayout headers = (LinearLayout) view.findViewById(R.id.team_list_headers);
+        for (int i = 0; i < headers.getChildCount(); i++) {
+            RelativeLayout header = (RelativeLayout) headers.getChildAt(i);
+            header.setOnClickListener(mOnClickListener);
+        }
+
         return view;
     }
+
+    View.OnClickListener mOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            RelativeLayout relV = (RelativeLayout) v;
+            hideAllCheckboxes();
+            CheckBox checkBox = (CheckBox) relV.getChildAt(1);
+            checkBox.toggle();
+            checkBox.setVisibility(View.VISIBLE);
+            switch(v.getId()) {
+                case R.id.team_list_name_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(teams, new Comparator<Team>() {
+                            @Override
+                            public int compare(Team o1, Team o2) {
+                                return o1.getName().compareTo(o2.getName());
+                            }
+                        });
+                    } else {
+                        Collections.sort(teams, new Comparator<Team>() {
+                            @Override
+                            public int compare(Team o1, Team o2) {
+                                return o2.getName().compareTo(o1.getName());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.team_list_owner_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(teams, new Comparator<Team>() {
+                            @Override
+                            public int compare(Team o1, Team o2) {
+                                return o1.getOwner().compareTo(o2.getOwner());
+                            }
+                        });
+                    } else {
+                        Collections.sort(teams, new Comparator<Team>() {
+                            @Override
+                            public int compare(Team o1, Team o2) {
+                                return o2.getOwner().compareTo(o1.getOwner());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.team_list_value_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(teams, new Comparator<Team>() {
+                            @Override
+                            public int compare(Team o1, Team o2) {
+                                return Double.compare(o1.getPrice(), o2.getPrice());
+                            }
+                        });
+                    } else {
+                        Collections.sort(teams, new Comparator<Team>() {
+                            @Override
+                            public int compare(Team o1, Team o2) {
+                                return Double.compare(o2.getPrice(), o1.getPrice());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.team_list_points_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(teams, new Comparator<Team>() {
+                            @Override
+                            public int compare(Team o1, Team o2) {
+                                return Double.compare(o1.getPoints(), o2.getPoints());
+                            }
+                        });
+                    } else {
+                        Collections.sort(teams, new Comparator<Team>() {
+                            @Override
+                            public int compare(Team o1, Team o2) {
+                                return Double.compare(o2.getPoints(), o1.getPoints());
+                            }
+                        });
+                    }
+                    break;
+            }
+            if (checkBox.isChecked()) {
+                checkBox.setButtonDrawable(R.drawable.ic_keyboard_arrow_up);
+            } else {
+                checkBox.setButtonDrawable(R.drawable.ic_keyboard_arrow_down);
+            }
+            mAdapter.notifyDataSetChanged();
+        }
+    };
+
 
     private void updateUI() {
 
         mAdapter = new TeamAdapter(teams);
         mTeamRecycleView.setAdapter(mAdapter);
-
-        mTeamRecycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-
-                if (linearLayout.findLastCompletelyVisibleItemPosition() == teams.size() - 1) {
-                    getTeamsFromDB(teams.get(teams.size() - 1).getTeam_id());
-                }
-
-            }
-        });
     }
 
     private class TeamHolder extends RecyclerView.ViewHolder {
@@ -123,7 +212,7 @@ public class TeamListFragment extends Fragment {
             holder.mName.setText(team.getName());
             holder.mOwner.setText(team.getOwner());
             holder.mPrice.setText("£" + team.getPrice() + " Mil");
-            holder.mPoints.setText("" + team.getPoints());
+            holder.mPoints.setText(String.valueOf(team.getPoints()));
         }
 
         @Override
@@ -133,15 +222,15 @@ public class TeamListFragment extends Fragment {
 
     }
 
-    private void getTeamsFromDB(int id) {
+    private void getTeamsFromDB(String sort) {
 
-        AsyncTask<Integer, Void, Void> asyncTask = new AsyncTask<Integer, Void, Void>() {
+        AsyncTask<String, Void, Void> asyncTask = new AsyncTask<String, Void, Void>() {
             @Override
-            protected Void doInBackground(Integer... teamIds) {
+            protected Void doInBackground(String... sort) {
 
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("https://union.ic.ac.uk/acc/football/android_connect/teams.php?id=" + teamIds[0])
+                        .url("https://union.ic.ac.uk/acc/football/android_connect/teams.php")
                         .build();
                 try {
                     Response response = client.newCall(request).execute();
@@ -183,7 +272,21 @@ public class TeamListFragment extends Fragment {
             }
         };
 
-        asyncTask.execute(id);
+        asyncTask.execute(sort);
+    }
+
+    private void hideAllCheckboxes() {
+        LinearLayout headers = (LinearLayout) view.findViewById(R.id.team_list_headers);
+        for (int i = 0; i < headers.getChildCount(); i++) {
+            RelativeLayout header = (RelativeLayout) headers.getChildAt(i);
+            for (int j = 0; j < header.getChildCount(); j++) {
+                View v = header.getChildAt(j);
+                if (v instanceof CheckBox) {
+                    v.setVisibility(View.GONE);
+                }
+            }
+        }
+
     }
 
 }

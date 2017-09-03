@@ -7,14 +7,19 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import uk.ac.imperial.icfootballfantasy.R;
 import uk.ac.imperial.icfootballfantasy.controller.PlayerLab;
-import uk.ac.imperial.icfootballfantasy.model.Team;
 import uk.ac.imperial.icfootballfantasy.model.Player;
+import uk.ac.imperial.icfootballfantasy.model.Team;
 
 /**
  * Created by leszek on 6/27/17.
@@ -24,10 +29,12 @@ public class PlayerListFragment extends Fragment {
     private RecyclerView mPlayerRecycleView;
     private PlayerAdapter mAdapter;
     Fragment fragment = new PlayerInfoFragment(); //next default fragment
+    View view;
+    List<Player> players;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view  = inflater.inflate(R.layout.player_list_fragment, container, false);
+        view  = inflater.inflate(R.layout.player_list_fragment, container, false);
 
         if (getArguments().getString("next") != null) { //set next fragment
             fragment = new PlayerEditFragment();
@@ -42,12 +49,274 @@ public class PlayerListFragment extends Fragment {
 
         updateUI();
 
+        LinearLayout headers = (LinearLayout) view.findViewById(R.id.player_list_headers);
+        for (int i = 0; i < headers.getChildCount(); i++) {
+            RelativeLayout header = (RelativeLayout) headers.getChildAt(i);
+            header.setOnClickListener(mOnClickListener);
+        }
+
         return view;
     }
 
+    View.OnClickListener mOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            RelativeLayout relV = (RelativeLayout) v;
+            hideAllCheckboxes();
+            CheckBox checkBox = (CheckBox) relV.getChildAt(1);
+            checkBox.toggle();
+            checkBox.setVisibility(View.VISIBLE);
+            switch(v.getId()) {
+                case R.id.player_list_name_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return o1.getLastName().compareTo(o2.getLastName());
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return o2.getLastName().compareTo(o1.getLastName());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.player_list_position_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return o1.getPosition().compareTo(o2.getPosition());
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return o2.getPosition().compareTo(o1.getPosition());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.player_list_price_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o1.getPrice(), o2.getPrice());
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o2.getPrice(), o1.getPrice());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.player_list_team_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o1.getTeam(), o2.getTeam());
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o2.getTeam(), o1.getTeam());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.player_list_points_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o1.getPoints(), o2.getPoints());
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o2.getPoints(), o1.getPoints());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.player_list_apps_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o1.getAppearances(), o2.getAppearances());
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o2.getAppearances(), o1.getAppearances());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.player_list_subs_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o1.getSubAppearances(), o2.getSubAppearances());
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o2.getSubAppearances(), o1.getSubAppearances());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.player_list_goals_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o1.getGoals(), o2.getGoals());
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o2.getGoals(), o1.getGoals());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.player_list_assists_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o1.getAssists(), o2.getAssists());
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o2.getAssists(), o1.getAssists());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.player_list_clean_sheets_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o1.getCleanSheets(), o2.getCleanSheets());
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o2.getCleanSheets(), o1.getCleanSheets());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.player_list_motms_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o1.getMotms(), o2.getMotms());
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o2.getMotms(), o1.getMotms());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.player_list_yellows_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o1.getYellowCards(), o2.getYellowCards());
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o2.getYellowCards(), o1.getYellowCards());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.player_list_reds_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o1.getRedCards(), o2.getRedCards());
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o2.getRedCards(), o1.getRedCards());
+                            }
+                        });
+                    }
+                    break;
+                case R.id.player_list_own_goals_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o1.getOwnGoals(), o2.getOwnGoals());
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                return Double.compare(o2.getOwnGoals(), o1.getOwnGoals());
+                            }
+                        });
+                    }
+                    break;
+            }
+            if (checkBox.isChecked()) {
+                checkBox.setButtonDrawable(R.drawable.ic_keyboard_arrow_up);
+            } else {
+                checkBox.setButtonDrawable(R.drawable.ic_keyboard_arrow_down);
+            }
+            mAdapter.notifyDataSetChanged();
+        }
+    };
     private void updateUI() {
         PlayerLab playerLab = PlayerLab.get();
-        List<Player> players = playerLab.getPlayersCopy();
+        players = playerLab.getPlayersCopy();
 
         if (getArguments().getString("positionFilter") != null) { //shows only list with filter && avoids duplicates
 
@@ -162,6 +431,20 @@ public class PlayerListFragment extends Fragment {
         @Override
         public int getItemCount() {
             return mPlayers.size();
+        }
+
+    }
+
+    private void hideAllCheckboxes() {
+        LinearLayout headers = (LinearLayout) view.findViewById(R.id.player_list_headers);
+        for (int i = 0; i < headers.getChildCount(); i++) {
+            RelativeLayout header = (RelativeLayout) headers.getChildAt(i);
+            for (int j = 0; j < header.getChildCount(); j++) {
+                View v = header.getChildAt(j);
+                if (v instanceof CheckBox) {
+                    v.setVisibility(View.GONE);
+                }
+            }
         }
 
     }

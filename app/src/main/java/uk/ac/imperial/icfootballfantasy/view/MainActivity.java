@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import uk.ac.imperial.icfootballfantasy.R;
 import uk.ac.imperial.icfootballfantasy.model.Constants;
@@ -123,6 +124,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_table) {
             fragmentClass = TablesFragment.class;
         } else if (id == R.id.nav_log_out) {
+            userData.clearUserData();
             SharedPreferences sharedPref = getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.remove("username");
@@ -130,8 +132,10 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+            return true;
         } else if (id == R.id.nav_share) {
-
+            Toast.makeText(getBaseContext(), "Function not implemented yet",
+                    Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_add_player) {
             fragmentClass = PlayerAddFragment.class;
         } else if (id == R.id.nav_set_stats) {

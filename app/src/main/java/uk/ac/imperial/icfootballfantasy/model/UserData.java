@@ -13,6 +13,10 @@ public class UserData {
     private static UserData sUserData;
     Team mTeam;
 
+    public void clearUserData() {
+        sUserData = null;
+    }
+
     public static UserData get() {
         if (sUserData == null) {
             sUserData   = new UserData();
