@@ -1,6 +1,8 @@
 package uk.ac.imperial.icfootballfantasy.view;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import uk.ac.imperial.icfootballfantasy.R;
+import uk.ac.imperial.icfootballfantasy.model.Constants;
 import uk.ac.imperial.icfootballfantasy.model.Team;
 import uk.ac.imperial.icfootballfantasy.model.UserData;
 
@@ -119,6 +122,14 @@ public class MainActivity extends AppCompatActivity
             fragmentClass = TeamListFragment.class;
         } else if (id == R.id.nav_table) {
             fragmentClass = TablesFragment.class;
+        } else if (id == R.id.nav_log_out) {
+            SharedPreferences sharedPref = getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.remove("username");
+            editor.apply();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_add_player) {

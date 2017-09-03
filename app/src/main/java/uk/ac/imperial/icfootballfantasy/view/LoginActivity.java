@@ -2,6 +2,7 @@ package uk.ac.imperial.icfootballfantasy.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +29,7 @@ import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import uk.ac.imperial.icfootballfantasy.R;
 import uk.ac.imperial.icfootballfantasy.controller.PlayerLab;
+import uk.ac.imperial.icfootballfantasy.model.Constants;
 import uk.ac.imperial.icfootballfantasy.model.Team;
 import uk.ac.imperial.icfootballfantasy.model.User;
 import uk.ac.imperial.icfootballfantasy.model.UserData;
@@ -43,72 +45,79 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_activity);
 
-        final Button registerButton = (Button) findViewById(R.id.login_register);
-        final ScrollView activityRootView = (ScrollView) findViewById(R.id.login_scroll_view);
-        activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                int heightDiff = activityRootView.getRootView().getHeight() - activityRootView.getHeight();
-                if (heightDiff > dpToPx(getApplicationContext(), 200)) { // if more than 200 dp, it's probably a keyboard...
-                    activityRootView.smoothScrollTo(0, registerButton.getTop());
-                }
-            }
-        });
-
-        final EditText usernameEditText = (EditText) findViewById(R.id.login_username);
-        final EditText passwordEditText = (EditText) findViewById(R.id.login_password);
-
-        final Button signInButton = (Button) findViewById(R.id.login_sign_in);
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                final String username = usernameEditText.getText().toString();
-                final String password = passwordEditText.getText().toString();
-
-                String message = "You need to enter";
-                if (username.equals("")) {
-                    message += " your username";
-                }
-                if (password.equals("")) {
-                    if (message.equals("You need to enter your username")) {
-                        message += " and";
+        SharedPreferences sharedPref = getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE);
+        String username = sharedPref.getString("username", null);
+        if (username != null) { //if the user is logged in
+            setContentView(R.layout.loading);
+            getUserNoPassFromDB(username);
+        } else {
+            setContentView(R.layout.login_activity);
+            final Button registerButton = (Button) findViewById(R.id.login_register);
+            final ScrollView activityRootView = (ScrollView) findViewById(R.id.login_scroll_view);
+            activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    int heightDiff = activityRootView.getRootView().getHeight() - activityRootView.getHeight();
+                    if (heightDiff > dpToPx(getApplicationContext(), 200)) { // if more than 200 dp, it's probably a keyboard...
+                        activityRootView.smoothScrollTo(0, registerButton.getTop());
                     }
-                    message += " your password";
                 }
-                if (message.equals("You need to enter")) { //then all fields filled
-                    signInButton.setText("");
-                    signInButton.setEnabled(false);
-                    ProgressBar progressBar = (ProgressBar) findViewById(R.id.login_progress);
-                    progressBar.setVisibility(View.VISIBLE);
-                    getUsersFromDB(username, password);
-                } else {
-                    Toast.makeText(getBaseContext(), message,
-                            Toast.LENGTH_SHORT).show();
+            });
+
+            final EditText usernameEditText = (EditText) findViewById(R.id.login_username);
+            final EditText passwordEditText = (EditText) findViewById(R.id.login_password);
+
+            final Button signInButton = (Button) findViewById(R.id.login_sign_in);
+            signInButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    final String username = usernameEditText.getText().toString();
+                    final String password = passwordEditText.getText().toString();
+
+                    String message = "You need to enter";
+                    if (username.equals("")) {
+                        message += " your username";
+                    }
+                    if (password.equals("")) {
+                        if (message.equals("You need to enter your username")) {
+                            message += " and";
+                        }
+                        message += " your password";
+                    }
+                    if (message.equals("You need to enter")) { //then all fields filled
+                        signInButton.setText("");
+                        signInButton.setEnabled(false);
+                        ProgressBar progressBar = (ProgressBar) findViewById(R.id.login_progress);
+                        progressBar.setVisibility(View.VISIBLE);
+                        getUserFromDB(username, password);
+                    } else {
+                        Toast.makeText(getBaseContext(), message,
+                                Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
 
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
+            registerButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                    startActivity(intent);
+                }
+            });
 
-        TextView forgotPassword = (TextView) findViewById(R.id.login_forgot_password);
-        forgotPassword.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
-                startActivity(intent);
-            }
-        });
+            TextView forgotPassword = (TextView) findViewById(R.id.login_forgot_password);
+            forgotPassword.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
 
     }
 
-    private void getUsersFromDB(String... data) {
+    private void getUserFromDB(String... data) {
 
         AsyncTask<String, Void, String> asyncTask = new AsyncTask<String, Void, String>() {
             @Override
@@ -153,6 +162,10 @@ public class LoginActivity extends AppCompatActivity {
             protected void onPostExecute(String message) {
                 PlayerLab.get(); //gets players from database
                 if (message.equals("correct")) {
+                    SharedPreferences sharedPref = getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("username", user.getUsername());
+                    editor.apply();
                     getTeamFromDB(user.getTeam_id());
                 } else {
                     Toast.makeText(getBaseContext(), message,
@@ -162,6 +175,57 @@ public class LoginActivity extends AppCompatActivity {
                     signInButton.setEnabled(true);
                     ProgressBar progressBar = (ProgressBar) findViewById(R.id.login_progress);
                     progressBar.setVisibility(View.GONE);
+                }
+            }
+        };
+
+        asyncTask.execute(data);
+    }
+
+    private void getUserNoPassFromDB(String... data) {
+
+        AsyncTask<String, Void, String> asyncTask = new AsyncTask<String, Void, String>() {
+            @Override
+            protected String doInBackground(String... data) {
+                String message;
+
+                HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+                logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
+                OkHttpClient client = new OkHttpClient();
+                Request request = new Request.Builder()
+                        .url("https://union.ic.ac.uk/acc/football/android_connect/get_user_no_pass.php?username=\"" + data[0]
+                                + "\"")
+                        .build();
+                try {
+                    Response response = client.newCall(request).execute();
+                    String jsonArray = response.body().string();
+                    JSONArray array = new JSONArray(jsonArray);
+
+                    JSONObject object = array.getJSONObject(0);
+
+                    user = new User(object.getInt("user_id"), object.getInt("team_id"), data[0],
+                            object.getInt("admined_team"), (object.getInt("is_super_admin") == 1));
+                    message = "correct";
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    message = "Could not connect to server";
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    message = "Could not connect to server";
+                }
+                return message;
+            }
+
+            @Override
+            protected void onPostExecute(String message) {
+                PlayerLab.get(); //gets players from database
+                if (message.equals("correct")) {
+                    getTeamFromDB(user.getTeam_id());
+                } else {
+                    Toast.makeText(getBaseContext(), message,
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         };

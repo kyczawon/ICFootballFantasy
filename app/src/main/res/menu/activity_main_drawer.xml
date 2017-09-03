@@ -4,16 +4,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_my_team"
+            android:icon="@drawable/ic_home"
             android:title="My Team"/>
         <item
             android:id="@+id/nav_teams"
+            android:icon="@drawable/ic_people"
             android:title="Teams"/>
         <item
             android:id="@+id/nav_players"
+            android:icon="@drawable/ic_action_tshirt"
             android:title="Players"/>
         <item
             android:id="@+id/nav_table"
-            android:icon="@drawable/ic_menu_share"
+            android:icon="@drawable/ic_web_asset"
             android:title="Tables \u0026 Fixtures"/>
         <item
             android:id="@+id/nav_share"
@@ -21,16 +24,21 @@
             android:title="Share"/>
 
         <item
+            android:id="@+id/nav_log_out"
+            android:icon="@drawable/ic_exit_to_app"
+            android:title="Log out"/>
+
+        <item
             android:id="@+id/nav_admin"
             android:title="Admin">
             <menu>
                 <item
                     android:id="@+id/nav_add_player"
-                    android:icon="@drawable/ic_action_add"
+                    android:icon="@drawable/ic_add"
                     android:title="Add Player"/>
                 <item
                     android:id="@+id/nav_set_team_stats"
-                    android:icon="@drawable/ic_action_add"
+                    android:icon="@drawable/ic_add"
                     android:title="Set Team Stats"/>
                 <item
                     android:id="@+id/nav_set_stats"
