@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Points"
+            android:text="@string/points"
             style="@style/medium_text"
             android:textColor="@color/textPrimary"/>
         <TextView
@@ -37,7 +37,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="This week"
+            android:text="@string/this_week"
             style="@style/medium_text"
             android:textColor="@color/textPrimary"/>
         <TextView
@@ -141,6 +141,7 @@
         </View>
 
         <LinearLayout
+            android:baselineAligned="false"
             android:id="@+id/main_def_linear_layout"
             android:layout_weight="10"
             android:layout_width="match_parent"
@@ -156,6 +157,7 @@
         </View>
 
         <LinearLayout
+            android:baselineAligned="false"
             android:id="@+id/main_mid_linear_layout"
             android:layout_weight="10"
             android:layout_width="match_parent"
@@ -171,6 +173,7 @@
         </View>
 
         <LinearLayout
+            android:baselineAligned="false"
             android:id="@+id/main_fwd_linear_layout"
             android:layout_weight="10"
             android:layout_width="match_parent"

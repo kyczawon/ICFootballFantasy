@@ -34,30 +34,45 @@ public class PlayerInfoFragment extends Fragment {
 
         ImageView mShirt = (ImageView) v.findViewById(R.id.player_info_image);
         mShirt.setImageResource(player.getImage());
+
         TextView mName = (TextView) v.findViewById(R.id.player_info_name);
         mName.setText(player.getFirstName() + " " + player.getLastName());
+
         TextView mPositionTeam = (TextView) v.findViewById(R.id.player_info_position_team);
         mPositionTeam.setText(player.getPosition() + " in the "+ player.getTeamString() + " team");
+
         TextView mPoints = (TextView) v.findViewById(R.id.player_info_points);
-        mPoints.setText("" + player.getAppearances());
+        mPoints.setText(String.valueOf(player.getPoints()));
+
+        TextView mPointsWeek = (TextView) v.findViewById(R.id.player_info_points_week);
+        mPointsWeek.setText(String.valueOf(player.getPointsWeek()));
+
         TextView mApps = (TextView) v.findViewById(R.id.player_info_apps);
-        mApps.setText("" + player.getAppearances());
+        mApps.setText(String.valueOf(player.getAppearances()));
+
         TextView mSubs = (TextView) v.findViewById(R.id.player_info_subs);
-        mSubs.setText("" + player.getSubAppearances());
+        mSubs.setText(String.valueOf(player.getSubAppearances()));
+
         TextView mGoals = (TextView) v.findViewById(R.id.player_info_goals);
-        mGoals.setText("" + player.getGoals());
+        mGoals.setText(String.valueOf(player.getGoals()));
+
         TextView mAssits = (TextView) v.findViewById(R.id.player_info_assists);
-        mAssits.setText("" + player.getAssists());
+        mAssits.setText(String.valueOf(player.getAssists()));
+
         TextView mCleanSheets= (TextView) v.findViewById(R.id.player_info_clean_sheets);
-        mCleanSheets.setText("" + player.getCleanSheets());
+        mCleanSheets.setText(String.valueOf(player.getCleanSheets()));
+
         TextView mMotms = (TextView) v.findViewById(R.id.player_info_motms);
-        mMotms.setText("" + player.getMotms());
+        mMotms.setText(String.valueOf(player.getMotms()));
+
         TextView mYellows = (TextView) v.findViewById(R.id.player_info_yellows);
-        mYellows.setText("" + player.getYellowCards());
+        mYellows.setText(String.valueOf(player.getYellowCards()));
+
         TextView mReds = (TextView) v.findViewById(R.id.player_info_reds);
-        mReds.setText("" + player.getRedCards());
+        mReds.setText(String.valueOf(player.getRedCards()));
+
         TextView mOwnGoals = (TextView) v.findViewById(R.id.player_info_own_goals);
-        mOwnGoals.setText("" + player.getOwnGoals());
+        mOwnGoals.setText(String.valueOf(player.getOwnGoals()));
 
         return v;
     }

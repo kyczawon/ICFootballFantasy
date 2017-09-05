@@ -26,6 +26,6 @@
         android:id="@+id/team_stats_button_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:text="@string/next"
         style="@style/large_button_no_radius"/>
 </LinearLayout>

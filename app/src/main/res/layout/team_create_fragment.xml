@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/pitch"
         android:scaleType="fitStart"/>
@@ -142,6 +143,7 @@
         </View>
 
         <LinearLayout
+            android:baselineAligned="false"
             android:layout_weight="10"
             android:layout_width="match_parent"
             android:layout_height="0dp">
@@ -368,6 +370,7 @@
         </View>
 
         <LinearLayout
+            android:baselineAligned="false"
             android:layout_weight="10"
             android:layout_width="match_parent"
             android:layout_height="0dp">
@@ -591,6 +594,7 @@
         </View>
 
         <LinearLayout
+            android:baselineAligned="false"
             android:layout_weight="10"
             android:layout_width="match_parent"
             android:layout_height="0dp">
@@ -789,7 +793,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Remaining Budget"
+                    android:text="@string/remaining_budget"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
@@ -818,7 +822,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="At least one player from every team:"
+                    android:text="@string/requirement_one_player"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true">
@@ -845,7 +849,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="At least three freshers:"
+                    android:text="@string/requirement_freshers"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true">
@@ -872,7 +876,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Max three players from same team:"
+                    android:text="@string/requirement_max_three"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true">
@@ -905,7 +909,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:layout_marginLeft="-4dp"
-                    android:hint="Team Name">
+                    android:hint="@string/team_name">
                 </EditText>
 
                 <CheckBox
@@ -921,7 +925,7 @@
                 android:id="@+id/create_team_button_submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Submit Team"
+                android:text="@string/submit_team"
                 style="@style/large_button_no_radius"/>
 
         </LinearLayout>

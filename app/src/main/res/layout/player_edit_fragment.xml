@@ -20,7 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Smith"
-            android:layout_marginLeft="8dp"/>
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"/>
 
     </LinearLayout>
 
@@ -31,19 +32,19 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Stat"
+            android:text="@string/stat"
             android:layout_weight="2"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Current"
+            android:text="@string/current"
             android:layout_weight="2"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Updated"
+            android:text="@string/updated"
             android:layout_weight="3"/>
 
     </LinearLayout>
@@ -57,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:text="Apps"/>
+            android:text="@string/apps"/>
 
         <TextView
             android:id="@+id/edit_player_current_apps"
@@ -104,7 +105,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Sub Apps"
+            android:text="@string/sub_apps"
             android:layout_weight="2"
             android:layout_gravity="center"/>
 
@@ -152,7 +153,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Goals"
+            android:text="@string/goals"
             android:layout_weight="2"
             android:layout_gravity="center"/>
 
@@ -200,7 +201,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Assists"
+            android:text="@string/assists"
             android:layout_weight="2"
             android:layout_gravity="center"/>
 
@@ -212,6 +213,7 @@
             android:layout_weight="2"
             android:layout_gravity="center"/>
         <LinearLayout
+            android:baselineAligned="false"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3">
@@ -253,7 +255,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Clean Sheets"
+            android:text="@string/clean_sheets"
             android:layout_weight="2"
             android:layout_gravity="center"/>
 
@@ -301,7 +303,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="MOTMs"
+            android:text="@string/motms"
             android:layout_weight="2"
             android:layout_gravity="center"/>
 
@@ -349,7 +351,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Yelllow Cards"
+            android:text="@string/yellows"
             android:layout_weight="2"
             android:layout_gravity="center"/>
 
@@ -397,7 +399,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Red Cards"
+            android:text="@string/reds"
             android:layout_weight="2"
             android:layout_gravity="center"/>
 
@@ -445,7 +447,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Own Goals"
+            android:text="@string/own_goals"
             android:layout_weight="2"
             android:layout_gravity="center"/>
 
@@ -495,7 +497,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/large_button"
-            android:text="Save Changes"/>
+            android:text="@string/save_changes"/>
         <ProgressBar
             android:id="@+id/edit_player_progress"
             style="?android:attr/progressBarStyleSmall"

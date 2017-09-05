@@ -5,45 +5,45 @@
         <item
             android:id="@+id/nav_my_team"
             android:icon="@drawable/ic_home"
-            android:title="My Team"/>
+            android:title="@string/my_team"/>
         <item
             android:id="@+id/nav_teams"
             android:icon="@drawable/ic_people"
-            android:title="Teams"/>
+            android:title="@string/teams"/>
         <item
             android:id="@+id/nav_players"
             android:icon="@drawable/ic_action_tshirt"
-            android:title="Players"/>
+            android:title="@string/players"/>
         <item
             android:id="@+id/nav_table"
             android:icon="@drawable/ic_web_asset"
-            android:title="Tables \u0026 Fixtures"/>
+            android:title="@string/tables"/>
         <item
             android:id="@+id/nav_share"
             android:icon="@drawable/ic_menu_share"
-            android:title="Share"/>
+            android:title="@string/share"/>
 
         <item
             android:id="@+id/nav_log_out"
             android:icon="@drawable/ic_exit_to_app"
-            android:title="Log out"/>
+            android:title="@string/log_out"/>
 
         <item
             android:id="@+id/nav_admin"
-            android:title="Admin">
+            android:title="@string/admin">
             <menu>
                 <item
                     android:id="@+id/nav_add_player"
                     android:icon="@drawable/ic_add"
-                    android:title="Add Player"/>
+                    android:title="@string/add_player"/>
                 <item
                     android:id="@+id/nav_set_team_stats"
                     android:icon="@drawable/ic_add"
-                    android:title="Set Team Stats"/>
+                    android:title="@string/set_team_stats"/>
                 <item
                     android:id="@+id/nav_set_stats"
                     android:icon="@drawable/ic_menu_send"
-                    android:title="Set Stats"/>
+                    android:title="@string/set_player_stats"/>
             </menu>
         </item>
 

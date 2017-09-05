@@ -14,7 +14,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="First Name"/>
+            android:text="@string/first_name"/>
 
         <EditText
             android:id="@+id/add_player_first_name"
@@ -32,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Last Name"/>
+            android:text="@string/last_name"/>
 
         <EditText
             android:id="@+id/add_player_last_name"
@@ -51,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Team"/>
+            android:text="@string/team"/>
 
         <Spinner
             android:id="@+id/add_player_team"
@@ -70,7 +70,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Position"/>
+            android:text="@string/position"/>
 
         <Spinner
             android:id="@+id/add_player_position"
@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="Price £ Mil"/>
+            android:text="@string/price_mil"/>
 
         <EditText
             android:id="@+id/add_player_price"
@@ -111,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="Is Fresher?"/>
+            android:text="@string/is_fresher"/>
 
         <android.support.v7.widget.AppCompatCheckBox
             android:id="@+id/add_player_is_fresher"
@@ -131,7 +131,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/large_button"
-            android:text="Add Player"/>
+            android:text="@string/add_player"/>
         <ProgressBar
             android:id="@+id/new_player_progress"
             style="?android:attr/progressBarStyleSmall"

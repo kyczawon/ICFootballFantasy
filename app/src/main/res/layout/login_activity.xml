@@ -26,20 +26,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:hint="Username"/>
+            android:hint="@string/username"/>
 
         <EditText
             android:id="@+id/login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:hint="Password"/>
+            android:hint="@string/password"/>
 
         <TextView
             android:id="@+id/login_forgot_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Forgot your password?"
+            android:text="@string/forgot_your_password"
             android:textColor="@color/colorPrimary"/>
 
         <RelativeLayout android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/large_button"
-                android:text="Sign in"/>
+                android:text="@string/sign_in"/>
             <ProgressBar
                 android:id="@+id/login_progress"
                 style="?android:attr/progressBarStyleSmall"
@@ -69,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/large_button"
-            android:text="Register"
+            android:text="@string/register"
             />
     </LinearLayout>
 </ScrollView>

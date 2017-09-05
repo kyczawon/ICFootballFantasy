@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
@@ -8,7 +7,7 @@
         android:id="@+id/team_stats_stat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Match Summary"
+        android:text="@string/match_summary"
         style="@style/medium_text"
         android:background="@color/colorPrimaryLight"
         android:textColor="@color/textPrimary"
@@ -29,7 +28,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Score"
+                android:text="@string/Score"
                 style="@style/medium_text"/>
             <EditText
                 android:id="@+id/team_stats_start_ic_score"
@@ -37,7 +36,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="IC"/>
+                android:hint="@string/ic"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,7 +51,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Opponent"/>
+                android:hint="@string/opponent"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -60,7 +59,7 @@
         android:id="@+id/team_stats_button_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:text="@string/next"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"

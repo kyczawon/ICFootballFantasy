@@ -3,6 +3,113 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
+
+    <!-- change_password_activity -->
+    <string name="change_password">Change Password</string>
+
+    <!-- forgot_password_activity -->
+    <string name="digit_password">4-digit Password</string>
+    <string name="check_passcode">Check Passcode</string>
+    <string name="email_passcode">Email me the Passcode</string>
+
+    <!-- loading -->
+    <string name="loading_message">Players warming up ;)</string>
+
+    <!-- login_activity -->
+    <string name="username">Username</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="register">Register</string>
+
+    <!-- player_add -->
+    <string name="price_mil">Price £ Mil</string>
+    <string name="is_fresher">Is Fresher?</string>
+    <string name="add_player">Add Player</string>
+
+    <!-- player_edit_fragment -->
+    <string name="stat">Stat</string>
+    <string name="current">Current</string>
+    <string name="updated">Updated</string>
+
+    <!-- player -->
+    <string name="name">Name</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="team">Team</string>
+    <string name="points">Points</string>
+    <string name="points_week">Points This Week</string>
+    <string name="position">Position</string>
+    <string name="price">Price</string>
+    <string name="apps">Apps</string>
+    <string name="sub_apps">Sub Apps</string>
+    <string name="goals">Goals</string>
+    <string name="assists">Assists</string>
+    <string name="clean_sheets">Clean Sheets</string>
+    <string name="motms">MOTMs</string>
+    <string name="yellows">Yellows</string>
+    <string name="reds">Reds</string>
+    <string name="own_goals">Own Goals</string>
+
+    <!-- team -->
+    <string name="team_name">Team Name</string>
+    <string name="owner">Owner</string>
+    <string name="value">Value</string>
+
+    <!-- repeated -->
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="save_changes">Save Changes</string>
+
+    <!-- register_activity -->
+    <string name="repeat_email">Repeat Email</string>
+
+    <!-- tables_fragment -->
+    <string name="first_team">First Team</string>
+    <string name="second_team">Second Team</string>
+    <string name="third_team">Third Team</string>
+    <string name="fourth_team">Fourth Team</string>
+    <string name="fifth_team">Fifth Team</string>
+    <string name="sixth_team">Sixth Team</string>
+    <string name="seventh_team">Seventh Team</string>
+    <string name="bucs_league">BUCS League</string>
+    <string name="bucs_cup">BUCS Cup</string>
+    <string name="lusl_league">LUSL League</string>
+    <string name="lusl_cup">LUSL Cup</string>
+
+    <!-- team_create_fragment -->
+    <string name="remaining_budget">Remaining Budget</string>
+    <string name="requirement_one_player">At least one player from every team:</string>
+    <string name="requirement_freshers">At least three freshers:</string>
+    <string name="requirement_max_three">Max three players from same team:</string>
+    <string name="submit_team">Submit Team</string>
+
+    <!-- team_display_fragment -->
+    <string name="this_week">This week</string>
+
+    <!-- team_display_fragment -->
+    <string name="next">Next</string>
+
+    <!-- team_stats_start_fragment -->
+    <string name="Score">Score</string>
+    <string name="ic">IC</string>
+    <string name="opponent">Opponent</string>
+
+    <!-- team_stats_summary_fragment -->
+    <string name="match_summary">Match Summary</string>
+
+    <!-- activity_main_drawer -->
+    <string name="my_team">My Team</string>
+    <string name="teams">Teams</string>
+    <string name="players">Players</string>
+    <string name="tables">Tables \u0026 Fixtures</string>
+    <string name="share">Share</string>
+    <string name="log_out">Log Out</string>
+    <string name="admin">Admin</string>
+    <string name="set_team_stats">Set Team Stats</string>
+    <string name="set_player_stats">Set Player Stats</string>
+
+
+
 </resources>

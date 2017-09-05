@@ -22,7 +22,7 @@
                     android:id="@+id/player_list_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Name"
+                    android:text="@string/name"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
                 <CheckBox
@@ -46,7 +46,7 @@
                     android:id="@+id/player_list_position"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Position"
+                    android:text="@string/position"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
                 <CheckBox
@@ -69,7 +69,7 @@
                     android:id="@+id/player_list_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Price"
+                    android:text="@string/price"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
                 <CheckBox
@@ -92,7 +92,7 @@
                     android:id="@+id/player_list_team"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Team"
+                    android:text="@string/team"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
                 <CheckBox
@@ -114,7 +114,7 @@
                     android:id="@+id/player_list_points"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Points"
+                    android:text="@string/points"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
                 <CheckBox
@@ -136,7 +136,7 @@
                     android:id="@+id/player_list_apps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Apps"
+                    android:text="@string/apps"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
                 <CheckBox
@@ -158,7 +158,7 @@
                     android:id="@+id/player_list_subs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Subs"
+                    android:text="@string/sub_apps"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
                 <CheckBox
@@ -180,7 +180,7 @@
                     android:id="@+id/player_list_goals"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Goals"
+                    android:text="@string/goals"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
                 <CheckBox
@@ -202,7 +202,7 @@
                     android:id="@+id/player_list_assists"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Assists"
+                    android:text="@string/assists"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
                 <CheckBox
@@ -224,7 +224,7 @@
                     android:id="@+id/player_list_clean_sheets"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Clean Sheets"
+                    android:text="@string/clean_sheets"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
                 <CheckBox
@@ -246,7 +246,7 @@
                     android:id="@+id/player_list_motms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="MOTMS"
+                    android:text="@string/motms"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
                 <CheckBox
@@ -268,7 +268,7 @@
                     android:id="@+id/player_list_yellows"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Yellows"
+                    android:text="@string/yellows"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
                 <CheckBox
@@ -290,7 +290,7 @@
                     android:id="@+id/player_list_reds"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Reds"
+                    android:text="@string/reds"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
                 <CheckBox
@@ -312,7 +312,7 @@
                     android:id="@+id/player_list_own_goals"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Own Goals"
+                    android:text="@string/own_goals"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
                 <CheckBox

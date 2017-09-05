@@ -27,13 +27,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Team Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
     <TextView
         android:id="@+id/nav_header_owner"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="owner"/>
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

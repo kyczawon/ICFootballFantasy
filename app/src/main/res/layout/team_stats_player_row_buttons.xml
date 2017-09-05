@@ -25,8 +25,7 @@
         android:layout_marginRight="16dp"
         android:maxHeight="40dp"
         tools:text="2"
-        android:inputType="number"
-        android:text="0"/>
+        android:inputType="number"/>
 
     <Button
         android:id="@+id/team_stats_row_player_increment"
