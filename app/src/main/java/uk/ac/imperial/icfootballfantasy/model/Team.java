@@ -260,6 +260,9 @@ public class Team {
                     case 9:
                         player9Id = player8Id;
                         break;
+                    case 10:
+                        player10Id = player9Id;
+                        break;
                 }
                 i--;
             }

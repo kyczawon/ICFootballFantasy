@@ -1,8 +1,11 @@
 package uk.ac.imperial.icfootballfantasy.view;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -18,7 +21,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+
 import uk.ac.imperial.icfootballfantasy.R;
+import uk.ac.imperial.icfootballfantasy.controller.Screenshot;
 import uk.ac.imperial.icfootballfantasy.model.Constants;
 import uk.ac.imperial.icfootballfantasy.model.Team;
 import uk.ac.imperial.icfootballfantasy.model.UserData;
@@ -26,12 +32,13 @@ import uk.ac.imperial.icfootballfantasy.model.UserData;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private Team currentTeamShown;
+    private Team team;
     UserData userData = UserData.get();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Team team = userData.getTeam();
+        team = userData.getTeam();
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -95,12 +102,16 @@ public class MainActivity extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        SharedPreferences sharedPref = getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        int screenshotNum = sharedPref.getInt("screenshotNum", 0);
+        screenshotNum++;
+        editor.putInt("screenShotNum", screenshotNum);
+        View rootView = findViewById(R.id.flContent);
+        Screenshot screenshot = new Screenshot();
+        Bitmap screenshotImage = screenshot.getScreenShot(rootView);
+        File file = screenshot.store(screenshotImage, "ICFantasyScreenshot" + screenshotNum + ".png");
+        shareImage(file);
 
         return super.onOptionsItemSelected(item);
     }
@@ -115,6 +126,8 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
         Class fragmentClass = TeamDisplayFragment.class;
         Bundle args = new Bundle();
+        SharedPreferences sharedPref = getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
         if (id == R.id.nav_my_team) {
             fragmentClass = TeamDisplayFragment.class;
         } else if (id == R.id.nav_players) {
@@ -125,8 +138,6 @@ public class MainActivity extends AppCompatActivity
             fragmentClass = TablesFragment.class;
         } else if (id == R.id.nav_log_out) {
             userData.clearUserData();
-            SharedPreferences sharedPref = getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPref.edit();
             editor.remove("username");
             editor.apply();
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
@@ -134,8 +145,15 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
             return true;
         } else if (id == R.id.nav_share) {
-            Toast.makeText(getBaseContext(), "Function not implemented yet",
-                    Toast.LENGTH_SHORT).show();
+            int screenshotNum = sharedPref.getInt("screenshotNum", 0);
+            screenshotNum++;
+            editor.putInt("screenShotNum", screenshotNum);
+            View rootView = findViewById(R.id.flContent);
+            Screenshot screenshot = new Screenshot();
+            Bitmap screenshotImage = screenshot.getScreenShot(rootView);
+            File file = screenshot.store(screenshotImage, "ICFantasyScreenshot" + screenshotNum + ".png");
+            shareImage(file);
+            return true;
         } else if (id == R.id.nav_add_player) {
             fragmentClass = PlayerAddFragment.class;
         } else if (id == R.id.nav_set_stats) {
@@ -143,6 +161,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_set_team_stats) {
             Intent intent = new Intent(getApplicationContext(), TeamStatsActivity.class);
             startActivity(intent);
+            return true;
         }
         try {
             fragment = (Fragment) fragmentClass.newInstance();
@@ -166,5 +185,21 @@ public class MainActivity extends AppCompatActivity
 
     public Team getCurrentTeamShown() {
         return currentTeamShown;
+    }
+
+    public void shareImage(File file){
+        Uri uri = Uri.fromFile(file);
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("image/*");
+
+        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "IC Fantasy Football");
+        intent.putExtra(android.content.Intent.EXTRA_TEXT, "I've got " + team.getPoints() + " points in IC Fantasy Football!");
+        intent.putExtra(Intent.EXTRA_STREAM, uri);
+        try {
+            startActivity(Intent.createChooser(intent, "Share Screenshot"));
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(getApplicationContext(), "No App Available", Toast.LENGTH_SHORT).show();
+        }
     }
 }

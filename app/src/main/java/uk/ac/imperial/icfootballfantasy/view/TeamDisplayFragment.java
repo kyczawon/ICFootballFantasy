@@ -266,7 +266,7 @@ public class TeamDisplayFragment extends Fragment {
                                 break;
                             case "FWD":
                                 fwdNum++;
-                                insert = 10;
+                                insert = 11;
                                 break;
                         }
                         switch (playerTargetPos) {
