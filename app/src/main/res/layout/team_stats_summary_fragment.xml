@@ -14,15 +14,8 @@
                       android:orientation="vertical" >
             <TextView
                 android:id="@+id/team_stats_summary_match"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/button_min_height"
-                android:gravity="center_vertical"
                 android:text="@string/match_summary"
-                style="@style/medium_text"
-                android:background="@color/colorPrimaryLight"
-                android:textColor="@color/textPrimary"
-                android:paddingLeft="16dp"
-                android:paddingStart="16dp"/>
+                style="@style/team_stats_summary_header"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -80,26 +73,13 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/button_min_height"
-                android:gravity="center_vertical"
                 android:text="@string/apps"
-                style="@style/medium_text"
-                android:background="@color/colorPrimaryLight"
-                android:textColor="@color/textPrimary"
-                android:padding="8dp"
-                android:paddingLeft="16dp"
-                android:paddingStart="16dp"/>
+                style="@style/team_stats_summary_header"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/button_min_height"
-                android:gravity="center_vertical"
                 android:text="@string/sub_apps"
-                style="@style/medium_text"
-                android:background="@color/colorPrimaryLight"
-                android:textColor="@color/textPrimary"
-                android:paddingLeft="16dp"
-                android:paddingStart="16dp"/>
+                style="@style/team_stats_summary_header"/>
 
         </LinearLayout>
     </ScrollView>
@@ -108,22 +88,14 @@
 
         <Button
             android:id="@+id/team_stats_summary_save"
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/large_button_no_radius"
             android:text="@string/save_changes"/>
         <ProgressBar
             android:id="@+id/team_stats_summary_progress"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminate="false"
-            android:progressDrawable="@drawable/circular_progress_bar"
-            android:background="@drawable/circle_shape"
-            android:max="100"
             android:layout_alignBottom="@+id/team_stats_summary_save"
             android:layout_alignTop="@+id/team_stats_summary_save"
-            android:layout_centerHorizontal="true"/>
+            style="@style/progress_bar_with_progress_update"/>
     </RelativeLayout>
 </LinearLayout>

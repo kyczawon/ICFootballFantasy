@@ -103,7 +103,6 @@ public class PlayerAddFragment extends Fragment {
         final Button button = (Button) v.findViewById(R.id.new_player_button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                ;
                 final String firstName = editTextFirstName.getText().toString();
                 final String lastName = editTextLastName.getText().toString();
                 final int price = Integer.parseInt(editTextPrice.getText().toString());
@@ -133,8 +132,8 @@ public class PlayerAddFragment extends Fragment {
                 logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("https://union.ic.ac.uk/acc/football/android_connect/add_player.php?first_name=\"" + input[0]
-                                + "\"&last_name=\"" + input[1]+ "\"&position=\"" + input[2] + "\"&team="+ Integer.parseInt(input[3])
+                        .url("https://union.ic.ac.uk/acc/football/android_connect/add_player.php?first_name=" + input[0]
+                                + "&last_name=" + input[1]+ "&position=" + input[2] + "&team="+ Integer.parseInt(input[3])
                                 + "&price=" + Double.parseDouble(input[4]) + "&is_fresher=" + Integer.parseInt(input[5]))
                         .build();
                 try {

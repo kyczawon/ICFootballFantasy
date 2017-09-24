@@ -19,20 +19,13 @@ android:layout_width="match_parent"
 
             <TextView
                 android:id="@+id/team_list_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="@string/team_name"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
+                style="@style/list_header_text_view"/>
             <CheckBox
                 android:id="@+id/team_list_name_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/team_list_name"
                 android:layout_toEndOf="@id/team_list_name"
-                android:button="@drawable/ic_keyboard_arrow_down"
-                android:visibility="gone"
-                android:clickable="false"/>
+                style="@style/list_header_check_box"/>
 
         </RelativeLayout>
 
@@ -44,21 +37,13 @@ android:layout_width="match_parent"
 
             <TextView
                 android:id="@+id/team_list_owner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="@string/owner"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:gravity="center"/>
+                style="@style/list_header_text_view"/>
             <CheckBox
                 android:id="@+id/team_list_owner_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/team_list_owner"
                 android:layout_toEndOf="@id/team_list_owner"
-                android:button="@drawable/ic_keyboard_arrow_down"
-                android:visibility="gone"
-                android:clickable="false"/>
+                style="@style/list_header_check_box"/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -69,21 +54,13 @@ android:layout_width="match_parent"
 
             <TextView
                 android:id="@+id/team_list_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="@string/value"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:gravity="center"/>
+                style="@style/list_header_text_view"/>
             <CheckBox
                 android:id="@+id/team_list_value_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/team_list_value"
                 android:layout_toEndOf="@id/team_list_value"
-                android:button="@drawable/ic_keyboard_arrow_down"
-                android:visibility="gone"
-                android:clickable="false"/>
+                style="@style/list_header_check_box"/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -94,11 +71,8 @@ android:layout_width="match_parent"
 
             <TextView
                 android:id="@+id/team_list_points"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="@string/points"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
+                style="@style/list_header_text_view"/>
             <CheckBox
                 android:id="@+id/team_list_points_checkbox"
                 android:layout_width="wrap_content"

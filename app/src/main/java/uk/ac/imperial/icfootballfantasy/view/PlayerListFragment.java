@@ -49,7 +49,7 @@ public class PlayerListFragment extends Fragment {
 
         updateUI();
 
-        LinearLayout headers = (LinearLayout) view.findViewById(R.id.player_list_headers);
+        LinearLayout headers = (LinearLayout) view.findViewById(R.id.players_list_headers);
         for (int i = 0; i < headers.getChildCount(); i++) {
             RelativeLayout header = (RelativeLayout) headers.getChildAt(i);
             header.setOnClickListener(mOnClickListener);
@@ -67,7 +67,7 @@ public class PlayerListFragment extends Fragment {
             checkBox.toggle();
             checkBox.setVisibility(View.VISIBLE);
             switch(v.getId()) {
-                case R.id.player_list_name_layout:
+                case R.id.players_list_name_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -84,7 +84,7 @@ public class PlayerListFragment extends Fragment {
                         });
                     }
                     break;
-                case R.id.player_list_position_layout:
+                case R.id.players_list_position_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -101,7 +101,7 @@ public class PlayerListFragment extends Fragment {
                         });
                     }
                     break;
-                case R.id.player_list_price_layout:
+                case R.id.players_list_price_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -118,7 +118,7 @@ public class PlayerListFragment extends Fragment {
                         });
                     }
                     break;
-                case R.id.player_list_team_layout:
+                case R.id.players_list_team_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -135,7 +135,7 @@ public class PlayerListFragment extends Fragment {
                         });
                     }
                     break;
-                case R.id.player_list_points_layout:
+                case R.id.players_list_points_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -152,7 +152,7 @@ public class PlayerListFragment extends Fragment {
                         });
                     }
                     break;
-                case R.id.player_list_apps_layout:
+                case R.id.players_list_apps_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -169,7 +169,7 @@ public class PlayerListFragment extends Fragment {
                         });
                     }
                     break;
-                case R.id.player_list_subs_layout:
+                case R.id.players_list_subs_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -186,7 +186,7 @@ public class PlayerListFragment extends Fragment {
                         });
                     }
                     break;
-                case R.id.player_list_goals_layout:
+                case R.id.players_list_goals_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -203,7 +203,7 @@ public class PlayerListFragment extends Fragment {
                         });
                     }
                     break;
-                case R.id.player_list_assists_layout:
+                case R.id.players_list_assists_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -220,7 +220,7 @@ public class PlayerListFragment extends Fragment {
                         });
                     }
                     break;
-                case R.id.player_list_clean_sheets_layout:
+                case R.id.players_list_clean_sheets_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -237,7 +237,7 @@ public class PlayerListFragment extends Fragment {
                         });
                     }
                     break;
-                case R.id.player_list_motms_layout:
+                case R.id.players_list_motms_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -254,7 +254,7 @@ public class PlayerListFragment extends Fragment {
                         });
                     }
                     break;
-                case R.id.player_list_yellows_layout:
+                case R.id.players_list_yellows_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -271,7 +271,7 @@ public class PlayerListFragment extends Fragment {
                         });
                     }
                     break;
-                case R.id.player_list_reds_layout:
+                case R.id.players_list_reds_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -288,7 +288,7 @@ public class PlayerListFragment extends Fragment {
                         });
                     }
                     break;
-                case R.id.player_list_own_goals_layout:
+                case R.id.players_list_own_goals_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -436,7 +436,7 @@ public class PlayerListFragment extends Fragment {
     }
 
     private void hideAllCheckboxes() {
-        LinearLayout headers = (LinearLayout) view.findViewById(R.id.player_list_headers);
+        LinearLayout headers = (LinearLayout) view.findViewById(R.id.players_list_headers);
         for (int i = 0; i < headers.getChildCount(); i++) {
             RelativeLayout header = (RelativeLayout) headers.getChildAt(i);
             for (int j = 0; j < header.getChildCount(); j++) {

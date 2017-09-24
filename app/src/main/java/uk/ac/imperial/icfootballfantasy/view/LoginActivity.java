@@ -128,8 +128,8 @@ public class LoginActivity extends AppCompatActivity {
                 logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("https://union.ic.ac.uk/acc/football/android_connect/check_user.php?username=\"" + data[0]
-                                + "\"&password=\""+ data[1] + "\"")
+                        .url("https://union.ic.ac.uk/acc/football/android_connect/check_user.php?username=" + data[0]
+                                + "&password="+ data[1])
                         .build();
                 try {
                     Response response = client.newCall(request).execute();
@@ -193,8 +193,7 @@ public class LoginActivity extends AppCompatActivity {
                 logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("https://union.ic.ac.uk/acc/football/android_connect/get_user_no_pass.php?username=\"" + data[0]
-                                + "\"")
+                        .url("https://union.ic.ac.uk/acc/football/android_connect/get_user_no_pass.php?username=" + data[0])
                         .build();
                 try {
                     Response response = client.newCall(request).execute();

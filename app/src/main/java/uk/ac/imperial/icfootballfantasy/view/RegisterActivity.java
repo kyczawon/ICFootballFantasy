@@ -48,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity{
                 password = passwordEditText.getText().toString();
                 final String passwordRepeat = passwordRepeatEditText.getText().toString();
                 String message = "";
-                if (username.equals("") || username.length() < 4) {
+                if (username.length() < 4) {
                     message += "Enter a username that is at least 4 characters long\n";
                 } else if (username.length() > 29) {
                     message += "Unfortunately your username is too long\n";
@@ -60,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity{
                 } else if (!email.equals(emailRepeat)) {
                     message += "emails don't match\n";
                 }
-                if (password.equals("") || password.length() < 8) {
+                if (password.length() < 8) {
                     message += "Enter a password that is at least 8 characters long\n";
                 } else if (password.length() > 29) {
                     message += "Unfortunately your password is too long\n";
@@ -98,8 +98,8 @@ public class RegisterActivity extends AppCompatActivity{
                 logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("https://union.ic.ac.uk/acc/football/android_connect/check_username&email.php?username=\"" + input[0]
-                                + "\"&email=\"" + input[1] + "\"")
+                        .url("https://union.ic.ac.uk/acc/football/android_connect/check_username&email.php?username=" + input[0]
+                                + "&email=" + input[1])
                         .build();
                 try {
                     Response response = client.newCall(request).execute();

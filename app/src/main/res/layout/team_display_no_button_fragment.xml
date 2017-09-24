@@ -109,26 +109,14 @@
 
                 <TextView
                     android:id="@+id/goal_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     tools:text="Monk"
-                    android:layout_gravity="center"
-                    android:background="#1B5E20"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
+                    style="@style/team_display_player_name_text_view"
                     />
 
                 <TextView
                     android:id="@+id/goal_score"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     tools:text="98"
-                    android:layout_gravity="center"
-                    android:background="#1B5E20"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="10sp"
-                    android:textStyle="bold"/>
+                    style="@style/team_display_player_points_text_view"/>
 
             </LinearLayout>
 
@@ -209,26 +197,13 @@
 
                 <TextView
                     android:id="@+id/sub1_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     tools:text="Monk"
-                    android:layout_gravity="center"
-                    android:background="#1B5E20"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    />
+                    style="@style/team_display_player_name_text_view"/>
 
                 <TextView
                     android:id="@+id/sub1_score"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     tools:text="98"
-                    android:layout_gravity="center"
-                    android:background="#1B5E20"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="10sp"
-                    android:textStyle="bold"/>
+                    style="@style/team_display_player_points_text_view"/>
 
             </LinearLayout>
 
@@ -250,26 +225,14 @@
 
                 <TextView
                     android:id="@+id/sub2_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     tools:text="Monk"
-                    android:layout_gravity="center"
-                    android:background="#1B5E20"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
+                    style="@style/team_display_player_name_text_view"
                     />
 
                 <TextView
                     android:id="@+id/sub2_score"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     tools:text="98"
-                    android:layout_gravity="center"
-                    android:background="#1B5E20"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="10sp"
-                    android:textStyle="bold"/>
+                    style="@style/team_display_player_points_text_view"/>
 
             </LinearLayout>
 
@@ -291,26 +254,13 @@
 
                 <TextView
                     android:id="@+id/sub3_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     tools:text="Monk"
-                    android:layout_gravity="center"
-                    android:background="#1B5E20"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    />
+                    style="@style/team_display_player_name_text_view"/>
 
                 <TextView
                     android:id="@+id/sub3_score"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     tools:text="98"
-                    android:layout_gravity="center"
-                    android:background="#1B5E20"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="10sp"
-                    android:textStyle="bold"/>
+                    style="@style/team_display_player_points_text_view"/>
 
             </LinearLayout>
 
@@ -332,26 +282,14 @@
 
                 <TextView
                     android:id="@+id/sub4_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     tools:text="Monk"
-                    android:layout_gravity="center"
-                    android:background="#1B5E20"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
+                    style="@style/team_display_player_name_text_view"
                     />
 
                 <TextView
                     android:id="@+id/sub4_score"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="98"
-                    android:layout_gravity="center"
-                    android:background="#1B5E20"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="10sp"
-                    android:textStyle="bold"/>
+                    style="@style/team_display_player_points_text_view"
+                    tools:text="98"/>
 
             </LinearLayout>
 
@@ -373,26 +311,14 @@
 
                 <TextView
                     android:id="@+id/sub5_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     tools:text="Monk"
-                    android:layout_gravity="center"
-                    android:background="#1B5E20"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
+                    style="@style/team_display_player_name_text_view"
                     />
 
                 <TextView
                     android:id="@+id/sub5_score"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     tools:text="98"
-                    android:layout_gravity="center"
-                    android:background="#1B5E20"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="10sp"
-                    android:textStyle="bold"/>
+                    style="@style/team_display_player_points_text_view"/>
 
             </LinearLayout>
         </LinearLayout>

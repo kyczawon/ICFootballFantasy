@@ -250,8 +250,8 @@ public class TeamCreateFragment extends Fragment {
                 logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("https://union.ic.ac.uk/acc/football/android_connect/add_team.php?user_id=" +  Integer.parseInt(input[0]) +"&name=\"" + input[1]
-                                + "\"&owner=\"" + input[2]+ "\"&price=" + Double.parseDouble(input[3]) + "&goal="+ Integer.parseInt(input[4])
+                        .url("https://union.ic.ac.uk/acc/football/android_connect/add_team.php?user_id=" +  Integer.parseInt(input[0]) +"&name=" + input[1]
+                                + "&owner=" + input[2]+ "&price=" + Double.parseDouble(input[3]) + "&goal="+ Integer.parseInt(input[4])
                                 + "&player1=" + Integer.parseInt(input[5]) + "&player2=" + Integer.parseInt(input[6])
                                 + "&player3=" + Integer.parseInt(input[7]) + "&player4=" + Integer.parseInt(input[8])
                                 + "&player5=" + Integer.parseInt(input[9]) + "&player6=" + Integer.parseInt(input[10])

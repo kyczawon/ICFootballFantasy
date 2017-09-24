@@ -24,7 +24,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:maxHeight="40dp"
-        tools:text="2"
+        android:text="0"
         android:inputType="number"/>
 
     <Button

@@ -9,28 +9,25 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <LinearLayout
-            android:id="@+id/player_list_headers"
+            android:id="@+id/players_list_headers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RelativeLayout
-                android:id="@+id/player_list_name_layout"
+                android:id="@+id/players_list_name_layout"
                 android:layout_width="@dimen/row_width"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/player_list_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/players_list_name"
                     android:text="@string/name"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/list_header_text_view"/>
                 <CheckBox
                     android:id="@+id/players_list_name_checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_list_name"
-                    android:layout_toEndOf="@id/player_list_name"
+                    android:layout_toRightOf="@id/players_list_name"
+                    android:layout_toEndOf="@id/players_list_name"
                     android:button="@drawable/ic_keyboard_arrow_up"
                     android:checked="true"
                     android:clickable="false"/>
@@ -38,300 +35,220 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/player_list_position_layout"
+                android:id="@+id/players_list_position_layout"
                 android:layout_width="@dimen/row_width"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/player_list_position"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/players_list_position"
                     android:text="@string/position"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/list_header_text_view"/>
                 <CheckBox
                     android:id="@+id/players_list_position_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_list_position"
-                    android:layout_toEndOf="@id/player_list_position"
-                    android:visibility="gone"
-                    android:clickable="false"/>
+                    android:layout_toRightOf="@id/players_list_position"
+                    android:layout_toEndOf="@id/players_list_position"
+                    style="@style/list_header_check_box"/>
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/player_list_price_layout"
+                android:id="@+id/players_list_price_layout"
                 android:layout_width="@dimen/row_width"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/player_list_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/players_list_price"
                     android:text="@string/price"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/list_header_text_view"/>
                 <CheckBox
                     android:id="@+id/players_list_price_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_list_price"
-                    android:layout_toEndOf="@id/player_list_price"
-                    android:visibility="gone"
-                    android:clickable="false"/>
+                    android:layout_toRightOf="@id/players_list_price"
+                    android:layout_toEndOf="@id/players_list_price"
+                    style="@style/list_header_check_box"/>
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/player_list_team_layout"
+                android:id="@+id/players_list_team_layout"
                 android:layout_width="@dimen/row_width"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/player_list_team"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/players_list_team"
                     android:text="@string/team"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/list_header_text_view"/>
                 <CheckBox
                     android:id="@+id/players_list_team_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_list_team"
-                    android:layout_toEndOf="@id/player_list_team"
-                    android:visibility="gone"
-                    android:clickable="false"/>
+                    android:layout_toRightOf="@id/players_list_team"
+                    android:layout_toEndOf="@id/players_list_team"
+                    style="@style/list_header_check_box"/>
 
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/player_list_points_layout"
+                android:id="@+id/players_list_points_layout"
                 android:layout_width="@dimen/row_width"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/player_list_points"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/players_list_points"
                     android:text="@string/points"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/list_header_text_view"/>
                 <CheckBox
                     android:id="@+id/players_list_points_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_list_points"
-                    android:layout_toEndOf="@id/player_list_points"
-                    android:visibility="gone"
-                    android:clickable="false"/>
+                    android:layout_toRightOf="@id/players_list_points"
+                    android:layout_toEndOf="@id/players_list_points"
+                    style="@style/list_header_check_box"/>
 
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/player_list_apps_layout"
+                android:id="@+id/players_list_apps_layout"
                 android:layout_width="@dimen/row_width"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/player_list_apps"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/players_list_apps"
                     android:text="@string/apps"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/list_header_text_view"/>
                 <CheckBox
                     android:id="@+id/players_list_apps_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_list_apps"
-                    android:layout_toEndOf="@id/player_list_apps"
-                    android:visibility="gone"
-                    android:clickable="false"/>
+                    android:layout_toRightOf="@id/players_list_apps"
+                    android:layout_toEndOf="@id/players_list_apps"
+                    style="@style/list_header_check_box"/>
 
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/player_list_subs_layout"
+                android:id="@+id/players_list_subs_layout"
                 android:layout_width="@dimen/row_width"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/player_list_subs"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/players_list_subs"
                     android:text="@string/sub_apps"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/list_header_text_view"/>
                 <CheckBox
                     android:id="@+id/players_list_subs_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_list_subs"
-                    android:layout_toEndOf="@id/player_list_subs"
-                    android:visibility="gone"
-                    android:clickable="false"/>
+                    android:layout_toRightOf="@id/players_list_subs"
+                    android:layout_toEndOf="@id/players_list_subs"
+                    style="@style/list_header_check_box"/>
 
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/player_list_goals_layout"
+                android:id="@+id/players_list_goals_layout"
                 android:layout_width="@dimen/row_width"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/player_list_goals"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/players_list_goals"
                     android:text="@string/goals"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/list_header_text_view"/>
                 <CheckBox
                     android:id="@+id/players_list_goals_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_list_goals"
-                    android:layout_toEndOf="@id/player_list_goals"
-                    android:visibility="gone"
-                    android:clickable="false"/>
+                    android:layout_toRightOf="@id/players_list_goals"
+                    android:layout_toEndOf="@id/players_list_goals"
+                    style="@style/list_header_check_box"/>
 
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/player_list_assists_layout"
+                android:id="@+id/players_list_assists_layout"
                 android:layout_width="@dimen/row_width"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/player_list_assists"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/list_assists"
                     android:text="@string/assists"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/list_header_text_view"/>
                 <CheckBox
                     android:id="@+id/players_list_assists_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_list_assists"
-                    android:layout_toEndOf="@id/player_list_assists"
-                    android:visibility="gone"
-                    android:clickable="false"/>
+                    android:layout_toRightOf="@id/list_assists"
+                    android:layout_toEndOf="@id/list_assists"
+                    style="@style/list_header_check_box"/>
 
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/player_list_clean_sheets_layout"
+                android:id="@+id/players_list_clean_sheets_layout"
                 android:layout_width="@dimen/row_width"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/player_list_clean_sheets"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/players_list_clean_sheets"
                     android:text="@string/clean_sheets"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/list_header_text_view"/>
                 <CheckBox
                     android:id="@+id/players_list_clean_sheets_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_list_clean_sheets"
-                    android:layout_toEndOf="@id/player_list_clean_sheets"
-                    android:visibility="gone"
-                    android:clickable="false"/>
+                    android:layout_toRightOf="@id/players_list_clean_sheets"
+                    android:layout_toEndOf="@id/players_list_clean_sheets"
+                    style="@style/list_header_check_box"/>
 
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/player_list_motms_layout"
+                android:id="@+id/players_list_motms_layout"
                 android:layout_width="@dimen/row_width"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/player_list_motms"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/players_list_motms"
                     android:text="@string/motms"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/list_header_text_view"/>
                 <CheckBox
                     android:id="@+id/players_list_motms_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_list_motms"
-                    android:layout_toEndOf="@id/player_list_motms"
-                    android:visibility="gone"
-                    android:clickable="false"/>
+                    android:layout_toRightOf="@id/players_list_motms"
+                    android:layout_toEndOf="@id/players_list_motms"
+                    style="@style/list_header_check_box"/>
 
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/player_list_yellows_layout"
+                android:id="@+id/players_list_yellows_layout"
                 android:layout_width="@dimen/row_width"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/player_list_yellows"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/list_yellows"
                     android:text="@string/yellows"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/list_header_text_view"/>
                 <CheckBox
                     android:id="@+id/players_list_yellows_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_list_yellows"
-                    android:layout_toEndOf="@id/player_list_yellows"
-                    android:visibility="gone"
-                    android:clickable="false"/>
+                    android:layout_toRightOf="@id/list_yellows"
+                    android:layout_toEndOf="@id/list_yellows"
+                    style="@style/list_header_check_box"/>
 
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/player_list_reds_layout"
+                android:id="@+id/players_list_reds_layout"
                 android:layout_width="@dimen/row_width"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/player_list_reds"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/players_list_reds"
                     android:text="@string/reds"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/list_header_text_view"/>
                 <CheckBox
                     android:id="@+id/players_list_reds_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_list_reds"
-                    android:layout_toEndOf="@id/player_list_reds"
-                    android:visibility="gone"
-                    android:clickable="false"/>
+                    android:layout_toRightOf="@id/players_list_reds"
+                    android:layout_toEndOf="@id/players_list_reds"
+                    style="@style/list_header_check_box"/>
 
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/player_list_own_goals_layout"
+                android:id="@+id/players_list_own_goals_layout"
                 android:layout_width="@dimen/row_width"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/player_list_own_goals"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/players_list_own_goals"
                     android:text="@string/own_goals"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/list_header_text_view"/>
                 <CheckBox
                     android:id="@+id/players_list_own_goals_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_list_own_goals"
-                    android:layout_toEndOf="@id/player_list_own_goals"
-                    android:visibility="gone"
-                    android:clickable="false"/>
+                    android:layout_toRightOf="@id/players_list_own_goals"
+                    android:layout_toEndOf="@id/players_list_own_goals"
+                    style="@style/list_header_check_box"/>
 
             </RelativeLayout>
         </LinearLayout>
-        <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-                                                android:id="@+id/player_recycler_view"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent">
-
-        </android.support.v7.widget.RecyclerView>
-
+        <android.support.v7.widget.RecyclerView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/player_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </LinearLayout>
 </HorizontalScrollView>

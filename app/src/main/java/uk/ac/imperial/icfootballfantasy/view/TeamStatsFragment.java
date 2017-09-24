@@ -169,7 +169,7 @@ public class TeamStatsFragment extends Fragment {
                         mPlayersSelected.add(mPlayer);
                     }
                 });
-                Button buttonInc = (Button) itemView.findViewById(R.id.team_stats_row_player_decrement);;
+                Button buttonInc = (Button) itemView.findViewById(R.id.team_stats_row_player_decrement);
                 buttonInc.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         int value = Integer.parseInt(editText.getText().toString());

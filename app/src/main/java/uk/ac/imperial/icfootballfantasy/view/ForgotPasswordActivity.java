@@ -140,8 +140,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("https://union.ic.ac.uk/acc/football/android_connect/check_passcode.php?email=\"" + input[0]
-                        + "\"&passcode=" + Integer.parseInt(input[1]))
+                        .url("https://union.ic.ac.uk/acc/football/android_connect/check_passcode.php?email=" + input[0]
+                        + "&passcode=" + Integer.parseInt(input[1]))
                         .build();
                 try {
                     Response response = client.newCall(request).execute();
