@@ -37,6 +37,8 @@ public class RegisterActivity extends AppCompatActivity{
         final EditText passwordEditText = (EditText) findViewById(R.id.register_password);
         final EditText passwordRepeatEditText = (EditText) findViewById(R.id.register_repeat_password);
 
+
+
         final Button registerButton = (Button) findViewById(R.id.register_register);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +83,7 @@ public class RegisterActivity extends AppCompatActivity{
                 }
             }
         });
+
     }
 
     boolean isEmailValid(CharSequence email) {
@@ -143,8 +146,8 @@ public class RegisterActivity extends AppCompatActivity{
                 logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("https://union.ic.ac.uk/acc/football/android_connect/add_user.php?username=\"" + input[0]
-                                + "\"&email=\"" + input[1]+ "\"&password=\"" + input[2] + "\"")
+                        .url("https://union.ic.ac.uk/acc/football/android_connect/add_user.php?username=" + input[0]
+                                + "&email=" + input[1]+ "&password=" + input[2] + "")
                         .build();
                 try {
                     Response response = client.newCall(request).execute();
@@ -160,6 +163,8 @@ public class RegisterActivity extends AppCompatActivity{
             @Override
             protected void onPostExecute(String message) {
                 if (message.equals("success")) {
+                    Toast.makeText(getBaseContext(), "Please confirm email to log in",
+                            Toast.LENGTH_LONG).show();
                     finish();
                 } else {
                     Toast.makeText(getBaseContext(), message,

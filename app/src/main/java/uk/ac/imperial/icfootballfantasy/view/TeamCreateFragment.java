@@ -127,11 +127,11 @@ public class TeamCreateFragment extends Fragment {
             min1CheckBox.setChecked(false);
         }
 
-        final CheckBox min3FreshersCheckBox = (CheckBox) v.findViewById(R.id.create_team_checkbox_min3_freshers);
-        if (fresherNum > 2) {
-            min3FreshersCheckBox.setChecked(true);
+        final CheckBox minFreshersCheckBox = (CheckBox) v.findViewById(R.id.create_team_checkbox_min_freshers);
+        if (fresherNum >= 2) {
+            minFreshersCheckBox.setChecked(true);
         } else {
-            min3FreshersCheckBox.setChecked(false);
+            minFreshersCheckBox.setChecked(false);
         }
 
         final EditText teamNameEditText = (EditText) v.findViewById(R.id.create_team_name);
@@ -174,7 +174,7 @@ public class TeamCreateFragment extends Fragment {
                     if (!min1CheckBox.isChecked()) {
                         message += "You need at least one player from every team \n";
                     }
-                    if (!min3FreshersCheckBox.isChecked()) {
+                    if (!minFreshersCheckBox.isChecked()) {
                         message += "You need at least 3 freshers in your team \n";
                     }
                     if (!max3CheckBox.isChecked()) {

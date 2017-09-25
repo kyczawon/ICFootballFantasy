@@ -1,69 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:padding="16dp"
-              android:background="@color/colorBackground">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        android:layout_gravity="center"/>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@+id/register_scroll_view"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@color/colorBackground">
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:padding="16dp"
+                  android:background="@color/colorBackground">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"/>
 
-    <EditText
-        android:id="@+id/register_username"
-        android:layout_marginTop="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:hint="@string/username"/>
-
-    <EditText
-        android:id="@+id/register_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:hint="@string/email"/>
-    <EditText
-        android:id="@+id/register_repeat_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:hint="@string/repeat_email"/>
-
-    <EditText
-        android:id="@+id/register_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/password"
-        android:inputType="textPassword"/>
-    
-    <EditText
-        android:id="@+id/register_repeat_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/repeat_password"
-        android:inputType="textPassword"/>
-
-    <RelativeLayout android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/register_register"
+        <EditText
+            android:id="@+id/register_username"
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/large_button"
-            android:text="@string/register"/>
-        <ProgressBar
-            android:id="@+id/register_progress"
-            style="?android:attr/progressBarStyleSmall"
-            android:layout_width="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="@string/username"/>
+
+        <EditText
+            android:id="@+id/register_email"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/register_register"
-            android:layout_alignTop="@+id/register_register"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone" />
-    </RelativeLayout>
-</LinearLayout>
+            android:inputType="textEmailAddress"
+            android:hint="@string/email"/>
+        <EditText
+            android:id="@+id/register_repeat_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="@string/repeat_email"/>
+
+        <EditText
+            android:id="@+id/register_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword"/>
+
+        <EditText
+            android:id="@+id/register_repeat_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/repeat_password"
+            android:inputType="textPassword"/>
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/register_register"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/large_button"
+                android:text="@string/register"/>
+            <ProgressBar
+                android:id="@+id/register_progress"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/register_register"
+                android:layout_alignTop="@+id/register_register"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

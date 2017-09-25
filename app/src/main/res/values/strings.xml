@@ -81,7 +81,7 @@
     <!-- team_create_fragment -->
     <string name="remaining_budget">Remaining Budget</string>
     <string name="requirement_one_player">At least one player from every team:</string>
-    <string name="requirement_freshers">At least three freshers:</string>
+    <string name="requirement_freshers">At least two freshers:</string>
     <string name="requirement_max_three">Max three players from same team:</string>
     <string name="submit_team">Submit Team</string>
 

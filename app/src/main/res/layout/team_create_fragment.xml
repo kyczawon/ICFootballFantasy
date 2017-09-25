@@ -856,7 +856,7 @@
                 </TextView>
 
                 <CheckBox
-                    android:id="@+id/create_team_checkbox_min3_freshers"
+                    android:id="@+id/create_team_checkbox_min_freshers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
