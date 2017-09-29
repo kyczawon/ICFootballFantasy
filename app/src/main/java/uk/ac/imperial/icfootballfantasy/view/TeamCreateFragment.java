@@ -65,6 +65,19 @@ public class TeamCreateFragment extends Fragment {
             team.setPlayerId(playerNum, playerId);
         }
 
+
+        final CheckBox teamNameCheckBox = (CheckBox) v.findViewById(R.id.create_team_checkbox_name);
+        final EditText teamNameEditText = (EditText) v.findViewById(R.id.create_team_name);
+        if (getArguments().containsKey("teamName")) { //check if a new player has been added from playerListFragment
+            teamName = getArguments().getString("teamName");
+            teamNameEditText.setText(teamName);
+            if (teamName.length() < 4) {
+                teamNameCheckBox.setChecked(false);
+            } else {
+                teamNameCheckBox.setChecked(true);
+            }
+        }
+
         final PlayerLab playerLab = PlayerLab.get();
         for (int i = 1; i <= 16; i++) {
             Player player = playerLab.getPlayer(team.getFullSquadPlayerId(i));
@@ -133,12 +146,9 @@ public class TeamCreateFragment extends Fragment {
             minFreshersCheckBox.setChecked(false);
         }
 
-        final EditText teamNameEditText = (EditText) v.findViewById(R.id.create_team_name);
-        final CheckBox teamNameCheckBox = (CheckBox) v.findViewById(R.id.create_team_checkbox_name);
         teamNameEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override

@@ -20,14 +20,12 @@
         android:id="@+id/list_player_team"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:width="@dimen/row_width"
-        android:gravity="center"/>
+        android:width="@dimen/row_width"/>
     <TextView
         android:id="@+id/list_player_fresher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:width="@dimen/row_width"
-        android:gravity="center"/>
+        android:width="@dimen/row_width"/>
     <TextView
         android:id="@+id/list_player_points"
         android:layout_width="wrap_content"

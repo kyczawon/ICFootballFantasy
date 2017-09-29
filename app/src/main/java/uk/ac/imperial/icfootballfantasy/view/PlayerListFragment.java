@@ -449,6 +449,7 @@ public class PlayerListFragment extends Fragment {
                     Bundle args = new Bundle();
                     args.putInt("playerID",  mPlayer.getId());
                     args.putInt("playerNum",  getArguments().getInt("playerNum"));
+                    args.putString("teamName",  getArguments().getString("teamName"));
                     fragment.setArguments(args);
                     getFragmentManager().beginTransaction().
                             replace(R.id.flContent, fragment).addToBackStack(null).commit();
@@ -525,6 +526,7 @@ public class PlayerListFragment extends Fragment {
                     Bundle args = new Bundle();
                     args.putInt("playerID",  mPlayer.getId());
                     args.putInt("playerNum",  getArguments().getInt("playerNum"));
+                    args.putString("teamName",  getArguments().getString("teamName"));
                     fragment.setArguments(args);
                     getFragmentManager().beginTransaction().
                             replace(R.id.flContent, fragment).addToBackStack(null).commit();

@@ -14,8 +14,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -23,6 +28,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import uk.ac.imperial.icfootballfantasy.R;
 import uk.ac.imperial.icfootballfantasy.controller.PlayerLab;
 import uk.ac.imperial.icfootballfantasy.model.Player;
+import uk.ac.imperial.icfootballfantasy.model.UserData;
 
 /**
  * Created by leszek on 8/13/17.
@@ -45,6 +51,7 @@ public class TeamStatsSummaryFragment extends Fragment {
     private int opponentScore;
     private boolean werePlayersUpdated = false;
     ProgressBar progressBar;
+    JSONArray jsonArray = new JSONArray();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -195,8 +202,8 @@ public class TeamStatsSummaryFragment extends Fragment {
         }
 
     }
-
     private void updatePlayersInApp() {
+
         PlayerLab playerLab = PlayerLab.get();
 
         int playerID = motm.getId();
@@ -276,10 +283,21 @@ public class TeamStatsSummaryFragment extends Fragment {
             try {
                 int playerApssAndSubsSize = playersAppsAndSubs.size();
                 for (int i = 0; i < playersAppsAndSubs.size(); i++) {
-
                     Player player = playersAppsAndSubs.get(i);
-                    publishProgress((int) (i * 100 / playerApssAndSubsSize));
+                    JSONObject json = new JSONObject();
+                    json.put("player_id", player.getId());
+                    json.put("apps", player.getAppearances());
+                    json.put("sub_apps", player.getSubAppearances());
+                    json.put("goals", player.getGoals());
+                    json.put("assists", player.getAssists());
+                    json.put("clean_sheets", player.getCleanSheets());
+                    json.put("motms", player.getMotms());
+                    json.put("own_goals", player.getOwnGoals());
+                    json.put("yellow_cards", player.getYellowCards());
+                    json.put("red_cards", player.getRedCards());
+                    json.put("points_week", player.getPointsWeek());
 
+                    publishProgress((int) (i * 100 / (playerApssAndSubsSize+1)));
                     HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
                     logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
                     OkHttpClient client = new OkHttpClient();
@@ -292,9 +310,21 @@ public class TeamStatsSummaryFragment extends Fragment {
                                     + "&points_week=" + player.getPointsWeek())
                             .build();
                     client.newCall(request).execute();
+
+                    UserData userData = UserData.get();
+                    client = new OkHttpClient();
+                    request = new Request.Builder()
+                            .url("https://union.ic.ac.uk/acc/football/android_connect/admin_log.php?user_id=" + userData.getUser_id()
+                                    + "&username=" + userData.getUsername() + "&date=" + Calendar.getInstance().getTime() + "&log=" + json.toString())
+                            .build();
+                    client.newCall(request).execute();
                 }
+
                 message = "success";
             } catch (IOException e) {
+                e.printStackTrace();
+                message = "Could not connect to server";
+            } catch (JSONException e) {
                 e.printStackTrace();
                 message = "Could not connect to server";
             }
