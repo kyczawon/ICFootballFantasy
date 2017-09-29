@@ -29,6 +29,7 @@ import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import uk.ac.imperial.icfootballfantasy.R;
 import uk.ac.imperial.icfootballfantasy.controller.PlayerLab;
+import uk.ac.imperial.icfootballfantasy.model.AppState;
 import uk.ac.imperial.icfootballfantasy.model.Constants;
 import uk.ac.imperial.icfootballfantasy.model.Team;
 import uk.ac.imperial.icfootballfantasy.model.User;
@@ -221,7 +222,7 @@ public class LoginActivity extends AppCompatActivity {
             protected void onPostExecute(String message) {
                 PlayerLab.get(); //gets players from database
                 if (message.equals("correct")) {
-                    getTeamFromDB(user.getTeam_id());
+                    getStateDB();
                 } else {
                     Toast.makeText(getBaseContext(), message,
                             Toast.LENGTH_SHORT).show();
@@ -230,6 +231,54 @@ public class LoginActivity extends AppCompatActivity {
         };
 
         asyncTask.execute(data);
+    }
+
+    private void getStateDB(Integer... team_ids) {
+
+        AsyncTask<Integer, Void, String> asyncTask = new AsyncTask<Integer, Void, String>() {
+            @Override
+            protected String doInBackground(Integer... team_ids) {
+                String message;
+
+                HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+                logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
+                OkHttpClient client = new OkHttpClient();
+                Request request = new Request.Builder()
+                        .url("https://union.ic.ac.uk/acc/football/android_connect/get_state.php")
+                        .build();
+                try {
+                    Response response = client.newCall(request).execute();
+                    String jsonArray = response.body().string();
+                    JSONArray array = new JSONArray(jsonArray);
+
+                    JSONObject object = array.getJSONObject(0);
+
+                    AppState.get(object.getInt("is_editable") == 1, object.getInt("is_transfer") == 1,
+                            object.getString("next_editable"), object.getString("save_by"));
+                    message = "correct";
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    message = "Could not connect to server";
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    message = "Could not connect to server";
+                }
+                return message;
+            }
+
+            @Override
+            protected void onPostExecute(String message) {
+               if (message.equals("correct")) {
+                   getTeamFromDB(user.getTeam_id());
+                } else {
+                    Toast.makeText(getBaseContext(), message,
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+
+        asyncTask.execute(team_ids);
     }
 
     private void getTeamFromDB(Integer... team_ids) {

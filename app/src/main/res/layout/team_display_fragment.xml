@@ -351,8 +351,7 @@
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/large_button_no_radius"
-            android:text="Save Changes by 01/10/17 23:59"/>
+            style="@style/large_button_no_radius"/>
         <ProgressBar
             android:id="@+id/team_display_progress"
             style="?android:attr/progressBarStyleSmall"

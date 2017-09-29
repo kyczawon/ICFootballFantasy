@@ -26,6 +26,7 @@ import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import uk.ac.imperial.icfootballfantasy.R;
 import uk.ac.imperial.icfootballfantasy.controller.PlayerLab;
+import uk.ac.imperial.icfootballfantasy.model.AppState;
 import uk.ac.imperial.icfootballfantasy.model.Player;
 import uk.ac.imperial.icfootballfantasy.model.Team;
 import uk.ac.imperial.icfootballfantasy.model.UserData;
@@ -40,6 +41,7 @@ public class TeamDisplayFragment extends Fragment {
     PlayerLab playerLab;
     int points_week = 0;
     boolean teamEditable = true;
+    AppState appState = AppState.get();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,12 @@ public class TeamDisplayFragment extends Fragment {
             UserData userData = UserData.get();
             team = userData.getTeam();
             view = inflater.inflate(R.layout.team_display_fragment, container, false);
+            if (!appState.isEditable()) {
+                teamEditable = false;
+                Button submitButton = (Button) view.findViewById(R.id.team_display_save_changes);
+                submitButton.setText(getResources().getString(R.string.editable_at) + " " + appState.getNextEditable());
+                submitButton.setEnabled(false);
+            }
         }
 
         playerLab = PlayerLab.get();
@@ -72,6 +80,7 @@ public class TeamDisplayFragment extends Fragment {
 
         if (teamEditable) {
             final Button submitButton = (Button) view.findViewById(R.id.team_display_save_changes);
+            submitButton.setText(getResources().getString(R.string.save_changes_by) + " " + appState.getSaveBy() + " 23:59");
             submitButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
 

@@ -7,5 +7,6 @@
     <dimen name="min_row_width">50dp</dimen>
     <dimen name="max_row_width">100dp</dimen>
     <dimen name="row_width">80dp</dimen>
+    <dimen name="first_row_width">100dp</dimen>
     <dimen name="button_min_height">36dp</dimen>
 </resources>

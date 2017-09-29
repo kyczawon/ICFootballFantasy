@@ -37,6 +37,7 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="team">Team</string>
+    <string name="fresher">Is Fresher</string>
     <string name="points">Points</string>
     <string name="points_week">Points This Week</string>
     <string name="position">Position</string>
@@ -45,7 +46,7 @@
     <string name="sub_apps">Sub Apps</string>
     <string name="goals">Goals</string>
     <string name="assists">Assists</string>
-    <string name="clean_sheets">Clean Sheets</string>
+    <string name="clean_sheets">CSs</string>
     <string name="motms">MOTMs</string>
     <string name="yellows">Yellows</string>
     <string name="reds">Reds</string>
@@ -110,6 +111,8 @@
     <string name="set_team_stats">Set Team Stats</string>
     <string name="set_player_stats">Set Player Stats</string>
 
-
+    <!-- App state -->
+    <string name="editable_at">Team will be editable at</string>
+    <string name="save_changes_by">Save Changes By</string>
 
 </resources>

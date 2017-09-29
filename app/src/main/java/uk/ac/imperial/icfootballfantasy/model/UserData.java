@@ -5,11 +5,11 @@ package uk.ac.imperial.icfootballfantasy.model;
  */
 
 public class UserData {
-    int user_id;
-    String username;
-    int team_id;
-    int adminedTeam;
-    boolean isSuperAdmin;
+    private int user_id;
+    private String username;
+    private int team_id;
+    private int adminedTeam;
+    private boolean isSuperAdmin;
     private static UserData sUserData;
     Team mTeam;
 

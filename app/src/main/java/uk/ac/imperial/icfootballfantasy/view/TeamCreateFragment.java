@@ -39,7 +39,6 @@ import uk.ac.imperial.icfootballfantasy.model.UserData;
 
 public class TeamCreateFragment extends Fragment {
     UserData userData = UserData.get();
-    Team fullTeam;
     String teamName;
 
     @Override

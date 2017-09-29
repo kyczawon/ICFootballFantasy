@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -21,13 +22,20 @@ import uk.ac.imperial.icfootballfantasy.controller.PlayerLab;
 import uk.ac.imperial.icfootballfantasy.model.Player;
 import uk.ac.imperial.icfootballfantasy.model.Team;
 
+import static uk.ac.imperial.icfootballfantasy.R.id.players_list_fresher_layout;
+import static uk.ac.imperial.icfootballfantasy.R.id.players_list_name_checkbox;
+import static uk.ac.imperial.icfootballfantasy.R.id.players_list_name_layout;
+
 /**
  * Created by leszek on 6/27/17.
  */
 
 public class PlayerListFragment extends Fragment {
     private RecyclerView mPlayerRecycleView;
+    private RecyclerView mPlayerRecycleViewName;
     private PlayerAdapter mAdapter;
+    private PlayerAdapterName mAdapterName;
+    static boolean rvName = false;
     Fragment fragment = new PlayerInfoFragment(); //next default fragment
     View view;
     List<Player> players;
@@ -47,7 +55,12 @@ public class PlayerListFragment extends Fragment {
         mPlayerRecycleView = (RecyclerView) view.findViewById(R.id.player_recycler_view);
         mPlayerRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        mPlayerRecycleViewName = (RecyclerView) view.findViewById(R.id.player_name_recycler_view);
+        mPlayerRecycleViewName.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         updateUI();
+
+        view.findViewById(players_list_name_layout).setOnClickListener(mOnClickListener);
 
         LinearLayout headers = (LinearLayout) view.findViewById(R.id.players_list_headers);
         for (int i = 0; i < headers.getChildCount(); i++) {
@@ -67,7 +80,7 @@ public class PlayerListFragment extends Fragment {
             checkBox.toggle();
             checkBox.setVisibility(View.VISIBLE);
             switch(v.getId()) {
-                case R.id.players_list_name_layout:
+                case players_list_name_layout:
                     if (checkBox.isChecked()) {
                         Collections.sort(players, new Comparator<Player>() {
                             @Override
@@ -131,6 +144,29 @@ public class PlayerListFragment extends Fragment {
                             @Override
                             public int compare(Player o1, Player o2) {
                                 return Double.compare(o2.getTeam(), o1.getTeam());
+                            }
+                        });
+                    }
+                    break;
+                case players_list_fresher_layout:
+                    if (checkBox.isChecked()) {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                int b1 = o1.isFresher() ? 1 : 0;
+                                int b2 = o2.isFresher() ? 1 : 0;
+
+                                return b2 - b1;
+                            }
+                        });
+                    } else {
+                        Collections.sort(players, new Comparator<Player>() {
+                            @Override
+                            public int compare(Player o1, Player o2) {
+                                int b1 = o2.isFresher() ? 1 : 0;
+                                int b2 = o1.isFresher() ? 1 : 0;
+
+                                return b2 - b1;
                             }
                         });
                     }
@@ -312,6 +348,7 @@ public class PlayerListFragment extends Fragment {
                 checkBox.setButtonDrawable(R.drawable.ic_keyboard_arrow_down);
             }
             mAdapter.notifyDataSetChanged();
+            mAdapterName.notifyDataSetChanged();
         }
     };
     private void updateUI() {
@@ -341,15 +378,54 @@ public class PlayerListFragment extends Fragment {
             }
         }
 
+        mAdapterName = new PlayerAdapterName(players);
+        mPlayerRecycleViewName.setAdapter(mAdapterName);
+
         mAdapter = new PlayerAdapter(players);
         mPlayerRecycleView.setAdapter(mAdapter);
+
+        mPlayerRecycleViewName.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                PlayerListFragment.rvName = true;
+                return false;
+            }
+        });
+
+        mPlayerRecycleView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                PlayerListFragment.rvName = false;
+                return false;
+            }
+        });
+
+        mPlayerRecycleViewName.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (rvName) {
+                    mPlayerRecycleView.scrollBy(dx,dy);
+                }
+            }
+        });
+
+        mPlayerRecycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (!rvName) {
+                    mPlayerRecycleViewName.scrollBy(dx,dy);
+                }
+            }
+        });
     }
 
     private class PlayerHolder extends RecyclerView.ViewHolder {
-        public TextView mName;
         public TextView mPosition;
         public TextView mTeam;
         public TextView mPrice;
+        public TextView mFresher;
         public TextView mPoints;
         public TextView mApps;
         public TextView mSubs;
@@ -379,10 +455,10 @@ public class PlayerListFragment extends Fragment {
                 }
             });
 
-            mName = (TextView) itemView.findViewById(R.id.list_player_name);
             mPosition = (TextView) itemView.findViewById(R.id.list_player_position);
             mTeam = (TextView) itemView.findViewById(R.id.list_player_team);
             mPrice = (TextView) itemView.findViewById(R.id.list_player_price);
+            mFresher = (TextView) itemView.findViewById(R.id.list_player_fresher);
             mPoints = (TextView) itemView.findViewById(R.id.list_player_points);
             mApps = (TextView) itemView.findViewById(R.id.list_player_apps);
             mSubs = (TextView) itemView.findViewById(R.id.list_player_subs);
@@ -412,20 +488,70 @@ public class PlayerListFragment extends Fragment {
         public void onBindViewHolder(PlayerHolder holder, int position) {
             Player player = mPlayers.get(position);
             holder.mPlayer = player;
-            holder.mName.setText(player.getLastName());
             holder.mPosition.setText(player.getPosition());
-            holder.mTeam.setText("" + player.getTeam());
+            holder.mTeam.setText(String.valueOf(player.getTeam()));
+            holder.mFresher.setText(String.valueOf(player.isFresher()));
             holder.mPrice.setText("£" + player.getPrice() + " Mil");
-            holder.mPoints.setText("" + player.getPoints());
-            holder.mApps.setText("" + player.getAppearances());
-            holder.mSubs.setText("" + player.getSubAppearances());
-            holder.mGoals.setText("" + player.getGoals());
-            holder.mAssists.setText("" + player.getAssists());
-            holder.mCleanSheets.setText("" + player.getCleanSheets());
-            holder.mMotms.setText("" + player.getMotms());
-            holder.mYellowCards.setText("" + player.getYellowCards());
-            holder.mRedCards.setText("" + player.getRedCards());
-            holder.mOwnGoals.setText("" + player.getOwnGoals());
+            holder.mPoints.setText(String.valueOf(player.getPoints()));
+            holder.mApps.setText(String.valueOf(player.getAppearances()));
+            holder.mSubs.setText(String.valueOf(player.getSubAppearances()));
+            holder.mGoals.setText(String.valueOf(player.getGoals()));
+            holder.mAssists.setText(String.valueOf(player.getAssists()));
+            holder.mCleanSheets.setText(String.valueOf(player.getCleanSheets()));
+            holder.mMotms.setText(String.valueOf(player.getMotms()));
+            holder.mYellowCards.setText(String.valueOf(player.getYellowCards()));
+            holder.mRedCards.setText(String.valueOf(player.getRedCards()));
+            holder.mOwnGoals.setText(String.valueOf(player.getOwnGoals()));
+        }
+
+        @Override
+        public int getItemCount() {
+            return mPlayers.size();
+        }
+
+    }
+
+    private class PlayerHolderName extends RecyclerView.ViewHolder {
+        public TextView mName;
+        public Player mPlayer;
+
+        public PlayerHolderName (View itemView) {
+            super(itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putInt("playerID",  mPlayer.getId());
+                    args.putInt("playerNum",  getArguments().getInt("playerNum"));
+                    fragment.setArguments(args);
+                    getFragmentManager().beginTransaction().
+                            replace(R.id.flContent, fragment).addToBackStack(null).commit();
+                }
+            });
+
+            mName = (TextView) itemView.findViewById(R.id.list_player_name);
+        }
+    }
+
+    private class PlayerAdapterName extends RecyclerView.Adapter<PlayerHolderName> {
+        private List<Player> mPlayers;
+        public PlayerAdapterName(List<Player> players) {
+            mPlayers = players;
+        }
+
+        @Override
+        public PlayerHolderName onCreateViewHolder(ViewGroup parent, int viewType) {
+            LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+            View view = layoutInflater.inflate(R.layout.player_name, parent, false);
+            return new PlayerHolderName(view);
+        }
+        @Override
+        public void onBindViewHolder(PlayerHolderName holder, int position) {
+            Player player = mPlayers.get(position);
+            holder.mPlayer = player;
+            holder.mName.setText(player.getLastName());
         }
 
         @Override
@@ -436,6 +562,7 @@ public class PlayerListFragment extends Fragment {
     }
 
     private void hideAllCheckboxes() {
+        view.findViewById(players_list_name_checkbox).setVisibility(View.GONE);
         LinearLayout headers = (LinearLayout) view.findViewById(R.id.players_list_headers);
         for (int i = 0; i < headers.getChildCount(); i++) {
             RelativeLayout header = (RelativeLayout) headers.getChildAt(i);
