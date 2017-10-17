@@ -424,6 +424,8 @@ public class Team {
 
     public void setStartPlayerId(int playerNum, int playerid) {
         switch (playerNum) {
+            case 0: goalId = playerid;
+                break;
             case 1: player1Id = playerid;
                 break;
             case 2: player2Id = playerid;

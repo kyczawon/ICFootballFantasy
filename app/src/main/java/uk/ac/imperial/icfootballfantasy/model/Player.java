@@ -157,6 +157,11 @@ public class Player {
         return lastName;
     }
 
+    public String getLastNameOneWord() {
+        String arr[] = lastName.split(" ", 2);
+        return arr[0];
+    }
+
     public String getPosition() {
         return position;
     }
@@ -207,7 +212,11 @@ public class Player {
     }
 
     public int getPoints() {
-        points = appearances * 2 + subAppearances + goals * 3 + assists * 2 + cleanSheets * 3 + motms * 5 +  ownGoals * -3 + redCards *-5 +yellowCards * -3;
+        points = appearances * 2 + subAppearances + goals * 4 + assists * 3 + motms * 5 +  ownGoals * -3 + redCards *-5 +yellowCards * -3;
+        if (position.equals("GK") || position.equals("DEF")) {
+            points += 3*cleanSheets;
+            points += goals;
+        }
         return points;
     }
 

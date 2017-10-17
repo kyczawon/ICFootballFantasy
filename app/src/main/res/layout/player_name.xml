@@ -8,8 +8,7 @@
     android:paddingBottom="4dp">
     <TextView
         android:id="@+id/list_player_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/first_row_width"
+        android:layout_width="@dimen/first_row_width"
+        android:layout_height="@dimen/row_height"
         android:textStyle="bold"/>
 </LinearLayout>

@@ -553,7 +553,7 @@ public class PlayerListFragment extends Fragment {
         public void onBindViewHolder(PlayerHolderName holder, int position) {
             Player player = mPlayers.get(position);
             holder.mPlayer = player;
-            holder.mName.setText(player.getLastName());
+            holder.mName.setText(player.getLastNameOneWord() + " " + player.getFirstName());
         }
 
         @Override

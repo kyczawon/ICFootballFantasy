@@ -105,7 +105,7 @@ public class TeamDisplayFragment extends Fragment {
             String playerNameID = "sub" + i + "_name";
             int resID = getResources().getIdentifier(playerNameID, "id", getActivity().getPackageName());
             TextView subName = (TextView) view.findViewById(resID);
-            subName.setText(subPlayer.getLastName());
+            subName.setText(subPlayer.getLastNameOneWord());
 
             String playerScoreID = "sub" + i + "_score";
             int resScoreID = getResources().getIdentifier(playerScoreID, "id", getActivity().getPackageName());
@@ -131,7 +131,7 @@ public class TeamDisplayFragment extends Fragment {
     private void buildTeam() {
         TextView goalName = (TextView) view.findViewById(R.id.goal_name);
         Player goal = playerLab.getPlayer(team.getGoalId());
-        goalName.setText(goal.getLastName());
+        goalName.setText(goal.getLastNameOneWord());
         TextView goalScore = (TextView) view.findViewById(R.id.goal_score);
         goalScore.setText(String.valueOf(goal.getPointsWeek()));
         LinearLayout goalLinearLayout = (LinearLayout) view.findViewById(R.id.goal);
@@ -177,7 +177,7 @@ public class TeamDisplayFragment extends Fragment {
             params2.gravity = Gravity.CENTER;
 
             TextView playerNameTextView = (TextView) getActivity().getLayoutInflater().inflate(R.layout.text_view_template, null);
-            playerNameTextView.setText(String.valueOf(player.getLastName()));
+            playerNameTextView.setText(String.valueOf(player.getLastNameOneWord()));
             playerNameTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
             playerNameTextView.setLayoutParams(params2);
             playerLinearLayout.addView(playerNameTextView);
@@ -301,7 +301,7 @@ public class TeamDisplayFragment extends Fragment {
                         TextView draggedName = (TextView) dragged.getChildAt(1);
                         TextView draggedPoints = (TextView) dragged.getChildAt(2);
                         draggedImage.setImageResource(playerTarget.getImage());
-                        draggedName.setText(playerTarget.getLastName());
+                        draggedName.setText(playerTarget.getLastNameOneWord());
                         draggedPoints.setText(String.valueOf(playerTarget.getPointsWeek()));
 
                 } else {
@@ -316,8 +316,8 @@ public class TeamDisplayFragment extends Fragment {
 
                     targetImage.setImageResource(playerDragged.getImage());
                     draggedImage.setImageResource(playerTarget.getImage());
-                    targetName.setText(playerDragged.getLastName());
-                    draggedName.setText(playerTarget.getLastName());
+                    targetName.setText(playerDragged.getLastNameOneWord());
+                    draggedName.setText(playerTarget.getLastNameOneWord());
                     targetPoints.setText(String.valueOf(playerDragged.getPointsWeek()));
                     draggedPoints.setText(String.valueOf(playerTarget.getPointsWeek()));
 

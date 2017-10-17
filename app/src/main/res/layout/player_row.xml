@@ -8,72 +8,58 @@
     android:paddingBottom="4dp">
     <TextView
         android:id="@+id/list_player_position"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/row_width"/>
+        android:layout_width="@dimen/row_width"
+        android:layout_height="@dimen/row_height"/>
     <TextView
         android:id="@+id/list_player_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/row_width"/>
+        android:layout_width="@dimen/row_width"
+        android:layout_height="@dimen/row_height"/>
     <TextView
         android:id="@+id/list_player_team"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/row_width"/>
+        android:layout_width="@dimen/row_width"
+        android:layout_height="@dimen/row_height"/>
     <TextView
         android:id="@+id/list_player_fresher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/row_width"/>
+        android:layout_width="@dimen/row_width"
+        android:layout_height="@dimen/row_height"/>
     <TextView
         android:id="@+id/list_player_points"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/row_width"/>
+        android:layout_width="@dimen/row_width"
+        android:layout_height="@dimen/row_height"/>
     <TextView
         android:id="@+id/list_player_apps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/row_width"/>
+        android:layout_width="@dimen/row_width"
+        android:layout_height="@dimen/row_height"/>
     <TextView
         android:id="@+id/list_player_subs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/row_width"/>
+        android:layout_width="@dimen/row_width"
+        android:layout_height="@dimen/row_height"/>
     <TextView
         android:id="@+id/list_player_goals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/row_width"/>
+        android:layout_width="@dimen/row_width"
+        android:layout_height="@dimen/row_height"/>
     <TextView
         android:id="@+id/list_player_assists"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/row_width"/>
+        android:layout_width="@dimen/row_width"
+         android:layout_height="@dimen/row_height"/>
     <TextView
         android:id="@+id/list_player_clean_sheets"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/row_width"/>
+        android:layout_width="@dimen/row_width"
+        android:layout_height="@dimen/row_height"/>
     <TextView
         android:id="@+id/list_player_motms"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/row_width"/>
+        android:layout_width="@dimen/row_width"
+        android:layout_height="@dimen/row_height"/>
     <TextView
         android:id="@+id/list_player_yellow_cards"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/row_width"/>
+        android:layout_width="@dimen/row_width"
+        android:layout_height="@dimen/row_height"/>
     <TextView
         android:id="@+id/list_player_red_cards"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/row_width"/>
+        android:layout_width="@dimen/row_width"
+        android:layout_height="@dimen/row_height"/>
     <TextView
         android:id="@+id/list_player_own_goals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/row_width"/>
+        android:layout_width="@dimen/row_width"
+        android:layout_height="@dimen/row_height"/>
 </LinearLayout>

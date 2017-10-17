@@ -54,7 +54,7 @@ public class TeamCreateFragment extends Fragment {
 
         int team1Num, team2Num, team3Num, team4Num, team5Num,team6Num, team7Num, fresherNum, totalPlayerNum;
         team1Num = team2Num = team3Num = team4Num = team5Num = team6Num = team7Num = fresherNum = totalPlayerNum = 0;
-        double remainingBudget = 110;
+        double remainingBudget = 107;
 
         Team team = ((TeamCreateActivity) getActivity()).getNewTeam();
 
@@ -71,10 +71,12 @@ public class TeamCreateFragment extends Fragment {
         if (getArguments().containsKey("teamName")) { //check if a new player has been added from playerListFragment
             teamName = getArguments().getString("teamName");
             teamNameEditText.setText(teamName);
-            if (teamName.length() < 4) {
-                teamNameCheckBox.setChecked(false);
-            } else {
-                teamNameCheckBox.setChecked(true);
+            if (teamName != null) {
+                if (teamName.length() < 4) {
+                    teamNameCheckBox.setChecked(false);
+                } else {
+                    teamNameCheckBox.setChecked(true);
+                }
             }
         }
 
@@ -116,7 +118,7 @@ public class TeamCreateFragment extends Fragment {
                 String textViewNameID = "create_team_player" + i + "_name";
                 resID = getResources().getIdentifier(textViewNameID, "id", getActivity().getPackageName());
                 TextView playerName = (TextView) v.findViewById(resID);
-                playerName.setText(player.getLastName());
+                playerName.setText(player.getLastNameOneWord());
 
                 String textViewPriceID = "create_team_player" + i + "_price";
                 resID = getResources().getIdentifier(textViewPriceID, "id", getActivity().getPackageName());
@@ -171,7 +173,7 @@ public class TeamCreateFragment extends Fragment {
         final int totalPlayerNumFinal = totalPlayerNum; //lol is this the best to avoid final error inside inner class
         Button submitButton = (Button) v.findViewById(R.id.create_team_button_submit);
         final Team finalTeam = team; //again...
-        final double price = 110 - remainingBudget;
+        final double price = 107 - remainingBudget;
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -192,7 +194,7 @@ public class TeamCreateFragment extends Fragment {
                     if (!teamNameCheckBox.isChecked()) {
                         message += "Your team name must be at least 4 characters long \n";
                     }
-                    if (price > 110) {
+                    if (price > 107) {
                         message += "You can't exceed the budget \n";
                     }
                     if (message.equals("")) {

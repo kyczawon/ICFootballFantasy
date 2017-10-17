@@ -167,7 +167,7 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPref.edit();
                     editor.putString("username", user.getUsername());
                     editor.apply();
-                    getTeamFromDB(user.getTeam_id());
+                    getStateDB();
                 } else {
                     Toast.makeText(getBaseContext(), message,
                             Toast.LENGTH_SHORT).show();
