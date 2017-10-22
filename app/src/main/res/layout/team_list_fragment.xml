@@ -15,7 +15,7 @@ android:layout_width="match_parent"
         <RelativeLayout
             android:id="@+id/team_list_name_layout"
             android:layout_width="0dp"
-            android:layout_weight="3"
+            android:layout_weight="2.5"
             android:layout_height="wrap_content">
 
             <TextView
@@ -50,7 +50,7 @@ android:layout_width="match_parent"
         <RelativeLayout
             android:id="@+id/team_list_value_layout"
             android:layout_width="0dp"
-            android:layout_weight="2"
+            android:layout_weight="1.8"
             android:layout_height="wrap_content">
 
             <TextView

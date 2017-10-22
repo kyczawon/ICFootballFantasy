@@ -15,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import uk.ac.imperial.icfootballfantasy.R;
@@ -33,6 +35,7 @@ public class TeamStatsFragment extends Fragment {
     private ArrayList<Player> mPlayersSelected = new ArrayList<>();
     private ArrayList<Player> mPlayersNotSelected = new ArrayList<>();
     private List<Player> players;
+    private List<Player> players2;
     private String currentStat;
     private int goalsEntered;
     private int numPlayers;
@@ -57,6 +60,7 @@ public class TeamStatsFragment extends Fragment {
         if (currentStat.equals("Appearances")) {
             PlayerLab playerLab = PlayerLab.get();
             players = playerLab.getPlayersCopy();
+            players2 = playerLab.getPlayersCopy();
         } else if (currentStat.equals("SubAppearances")) {
             players = teamStatsActivity.getPlayersSubs();
         } else {
@@ -69,8 +73,23 @@ public class TeamStatsFragment extends Fragment {
                     if (players.get(i).getTeam() != adminedTeam) {
                         players.remove(i);
                         i--;
+                    } else {
+                        players2.remove(i);
                     }
                 }
+                Collections.sort(players, new Comparator<Player>() {
+                    @Override
+                    public int compare(Player o1, Player o2) {
+                        return o1.getLastName().compareTo(o2.getLastName());
+                    }
+                });
+                Collections.sort(players2, new Comparator<Player>() {
+                    @Override
+                    public int compare(Player o1, Player o2) {
+                        return o1.getLastName().compareTo(o2.getLastName());
+                    }
+                });
+                players.addAll(players2);
                 mPlayersNotSelected = new ArrayList<>(players);
                 args.putString("stat", "SubAppearances");
                 break;
@@ -147,13 +166,17 @@ public class TeamStatsFragment extends Fragment {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if (isChecked) {
-                            numPlayers++;
-                            mPlayersSelected.add(mPlayer);
-                            mPlayersNotSelected.remove(mPlayer);
+                            if (!mPlayersSelected.contains(mPlayer)) {
+                                numPlayers++;
+                                mPlayersSelected.add(mPlayer);
+                                mPlayersNotSelected.remove(mPlayer);
+                            }
                         } else {
-                            numPlayers--;
-                            mPlayersSelected.remove(mPlayer);
-                            mPlayersNotSelected.add(mPlayer);
+                            if (!mPlayersNotSelected.contains(mPlayer)) {
+                                numPlayers--;
+                                mPlayersSelected.remove(mPlayer);
+                                mPlayersNotSelected.add(mPlayer);
+                            }
                         }
                     }
                 });
@@ -205,7 +228,12 @@ public class TeamStatsFragment extends Fragment {
         @Override
         public void onBindViewHolder(PlayerHolder holder, int position) {
             holder.mPlayer =  mPlayers.get(position);
-            holder.mName.setText(holder.mPlayer.getFirstName() + " " + holder.mPlayer.getLastName());
+            holder.mName.setText(holder.mPlayer.getLastName() + " " + holder.mPlayer.getFirstName());
+            if (mPlayersSelected.contains(holder.mPlayer)) {
+                holder.mCheckBox.setChecked(true);
+            } else {
+                holder.mCheckBox.setChecked(false);
+            }
         }
 
         @Override
